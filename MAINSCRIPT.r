@@ -142,11 +142,12 @@ dbWriteTable(conn, append = TRUE, name = "taxo", value = taxo_u, row.names = FAL
 dbWriteTable(conn, append = TRUE, name = "obs", value = Oiseau, row.names = FALSE)
 dbWriteTable(conn, append = TRUE, name = "effort_e", value = effort_u, row.names = FALSE)
 
-#Test pour s'assurer que les données sont injectées dans la base de données
-niveau_espece<- '
-  SELECT date_obs
-    FROM obs
-;'
+#Test pour s'assurer que les donn?es sont inject?es dans la base de donn?es
+niveau_espece<-"
+  SELECT *
+    FROM taxo
+    WHERE rank = 'species'
+;"
 
 espece_connue<-dbGetQuery(conn, niveau_espece)
 
