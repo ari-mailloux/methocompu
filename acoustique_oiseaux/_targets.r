@@ -7,15 +7,11 @@ list(
     command = list.files(pattern = "\\.csv$")
   ),
   tar_target(
-    name = dat,
-    command = lapply(fichiers, read.csv)
+    dat,
+    lapply(fichiers, read.csv)
   ),
   tar_target(
-    name = donnees_combinees,
-    command = do.call(rbind, dat)
-  ),
-  tar_target(
-    name = pas_NA,
-    command = NULL_NA
+    donnees_combin,
+    do.call(rbind, dat)
   )
 )
