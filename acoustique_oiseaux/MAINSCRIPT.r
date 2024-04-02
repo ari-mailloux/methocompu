@@ -4,7 +4,6 @@
 #Les scriptes R des fonctions doivent également s'y retrouver.
 
 #importer base de données dans R
-library(targets)
 
 fichiers <- list.files(pattern = "\\.csv$")
 dat <- lapply(fichiers, read.csv)
