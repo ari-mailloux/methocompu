@@ -159,8 +159,14 @@ heure<-dbGetQuery(conn, par_heure)
 
 
 
-obs_par_heure<- dbGetQuery(conn, abondance_heure)
+chouette_rayee<-"
+  SELECT valid_scientific_name, STRFTIME('%H:00:00', time_obs) AS heure_formattee, COUNT(*) AS nb_obs
+  FROM obs
+  WHERE valid_scientific_name= 'Strix varia'
+  GROUP BY STRFTIME('%H:00:00', time_obs)
+  ORDER BY heure_formattee;"
 
+obs_chouette<-dbGetQuery(conn, chouette_rayee)
 
 
 
