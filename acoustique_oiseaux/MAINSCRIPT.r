@@ -154,6 +154,16 @@ niveau_espece<-"
 espece_connue<-dbGetQuery(conn, niveau_espece)
 
 #Prochaine requête à faire: Quelle heure a le plus d'observations (table obs)
+abondance_heure<- "
+  SELECT time_obs, count(id_obs) AS nb_obs
+  FROM obs
+  ORDER BY nb_obs DESC
+;"
+
+obs_par_heure<- dbGetQuery(conn, abondance_heure)
+
+
+
 
 
 dbDisconnect(conn)
