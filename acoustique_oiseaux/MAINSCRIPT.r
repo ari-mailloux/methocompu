@@ -153,12 +153,15 @@ niveau_espece<-"
 #Toutes nos obs qu'on se rend à l'espèce dans notre table taxonomie
 espece_connue<-dbGetQuery(conn, niveau_espece)
 
-#Prochaine requête à faire: Quelle heure a le plus d'observations (table obs)
-abondance_heure<- "
-  SELECT time_obs, count(id_obs) AS nb_obs
+par_heure<- "
+ SELECT STRFTIME('%H:00:00', time_obs) AS heure_formattee, COUNT(*) AS nb_obs
   FROM obs
-  ORDER BY nb_obs DESC
-;"
+  GROUP BY STRFTIME('%H:00:00', time_obs)
+  ORDER BY heure_formattee;"
+
+heure<-dbGetQuery(conn, par_heure)
+
+
 
 obs_par_heure<- dbGetQuery(conn, abondance_heure)
 
