@@ -1,6 +1,8 @@
 library(targets)
 tar_option_set(packages = c("rmarkdown", "dplyr", "RSQLite"))
 
+source("null_vers_na.R")
+
 list(
   tar_target(
     name = fichiers,
