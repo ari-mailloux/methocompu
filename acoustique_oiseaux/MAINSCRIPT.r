@@ -146,7 +146,7 @@ dbWriteTable(conn, append = TRUE, name = "effort_e", value = effort_u, row.names
 #Première requête pour sélectionner nos observations qui se rendent jusqu'à l'espèce
 niveau_espece<-"
   SELECT *
-    FROM taxo
+    FROM obs
     WHERE rank = 'species'
 ;"
 

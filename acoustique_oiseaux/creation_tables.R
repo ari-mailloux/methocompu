@@ -18,7 +18,9 @@ Oiseau<-data.frame(
   presence = df$presence,
   id_obs = df$ID_obs,
   time_obs = df$time_obs,
-  valid_scientific_name = df$valid_scientific_name
+  valid_scientific_name = df$valid_scientific_name,
+  rank = df$rank,
+  date_obs = df$date_obs
 )
 
 
