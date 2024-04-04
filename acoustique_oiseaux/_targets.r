@@ -13,5 +13,9 @@ list(
   tar_target(
     donnees_combin,
     do.call(rbind, dat)
+  ),
+  tar_target(
+    null_en_na,
+    null_vers_na(donnees_combin)
   )
 )

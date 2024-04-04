@@ -1,5 +1,5 @@
 #fonction pour changer les NULL en NA
-NULL_NA<- function(don) {
+null_vers_na<- function(don) {
   don[don=="NULL"]<-NA
   return(don)
 }
