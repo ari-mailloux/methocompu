@@ -32,12 +32,8 @@ df$ID_obs<-ID_obs
 df$projection<-"projection conique conforme de Lambert du Québec (SRCS=6622)"
 
 # Vérifier qu'il y a que des points dans la latitude
-virgules <- grep(",", df$lat)
-if (length(virgules) > 0) {
-  cat("Oui") #présence d'au moins une virgule
-} else {
-  cat("Non") #que des points
-}
+
+source("virgules_latitude.R")
 
 #Vérifier que chaque site a une seule latitude
 latitude <- aggregate(lat ~ site_id, df, function(x) length(unique(x)) == 1)
