@@ -139,26 +139,18 @@ dbWriteTable(conn, append = TRUE, name = "taxo", value = taxo_u, row.names = FAL
 dbWriteTable(conn, append = TRUE, name = "obs", value = Oiseau, row.names = FALSE)
 dbWriteTable(conn, append = TRUE, name = "effort_e", value = effort_u, row.names = FALSE)
 
-#Première requête pour sélectionner nos observations qui se rendent jusqu'à l'espèce
-niveau_espece<-"
-  SELECT *
-    FROM obs
-    WHERE rank = 'species'
-;"
-
-#Toutes nos obs qu'on se rend à l'espèce dans notre table taxonomie
-espece_connue<-dbGetQuery(conn, niveau_espece)
-
+#Requête SQL qui permet de dire le nombre d'observation par heure
+#Note: Il y a rien entre 13h et 19h. Aucun échantillonnage dans ces heures?
 par_heure<- "
  SELECT STRFTIME('%H:00:00', time_obs) AS heure_formattee, COUNT(*) AS nb_obs
   FROM obs
   GROUP BY STRFTIME('%H:00:00', time_obs)
   ORDER BY heure_formattee;"
 
+#Tableau avec le nombre d'observations selon l'heure
 heure<-dbGetQuery(conn, par_heure)
 
-
-
+#Requête SQL qui dit le nombre d'observation de la chouette rayée selon l'heure
 chouette_rayee<-"
   SELECT valid_scientific_name, STRFTIME('%H:00:00', time_obs) AS heure_formattee, COUNT(*) AS nb_obs
   FROM obs
@@ -166,9 +158,7 @@ chouette_rayee<-"
   GROUP BY STRFTIME('%H:00:00', time_obs)
   ORDER BY heure_formattee;"
 
+#Sort le tableau avec le nombre d'observations de chouette rayée selon l'heure
 obs_chouette<-dbGetQuery(conn, chouette_rayee)
-
-
-
 
 dbDisconnect(conn)
