@@ -6,5 +6,6 @@ donnees_combinees|stem|d2abfa04533d4093|69f583bc0b7e7f3b|ec82fae9c201861c|387967
 fichiers|stem|47f75482b8c366bf|c5c047587881c685|ef46db3751d8e999|-1731428263||t19815.6149872872s|23d4c068c1a38c5b|5606|rds|local|vector|||0.78||
 na_en_null|stem||3b4ac49628228331|ef46db3751d8e999|375681180||t19816.0217061645s||0|rds|local|vector|||0.45||impossible de trouver la fonction NULL_NA
 na_null|stem||abad835e809c27ac|6d434dfd7de9ccaf|1490674469||t19815.8104964568s||0|rds|local|vector|||0.03||impossible de trouver la fonction null_na
-null_en_na|stem||3e73b42f9b0fd243|6d434dfd7de9ccaf|-1764068814||t19816.025632068s||0|rds|local|vector|||0.01||impossible de trouver la fonction null_vers_na
+null_en_na|stem|71d4b62e85e48fe0|3e73b42f9b0fd243|e0804684b7c7ba95|-1764068814||t19817.7311884651s|1fd7b7f8700dd5ac|367132|rds|local|vector|||0.03||
+null_vers_na|function|13dc8737831ec87e|||||||||||||||
 pas_NA|stem||d4f03758a8400aa9|98a417ab430e9090|234101331||t19815.7961123286s||0|rds|local|vector|||0.01||impossible de trouver la fonction NULL_NA

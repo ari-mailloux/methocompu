@@ -21,3 +21,4 @@ list(
     null_vers_na(donnees_combin)
   )
 )
+
