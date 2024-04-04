@@ -11,8 +11,8 @@ dat <- lapply(fichiers, read.csv)
 donnees_combinees <- do.call(rbind, dat)
 
 #transformation des NULL en NA
-source("NULL_NA.R")
-df<-NULL_NA(donnees_combinees)
+source("null_vers_na.R")
+df<-null_vers_na(donnees_combinees)
 
 #normaliser le format des dates dans la base de données
 source("convertir_date.R")
