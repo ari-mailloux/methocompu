@@ -20,15 +20,15 @@ list(
   ),
   tar_target(
     null_en_na,
-    null_vers_na(dat)
+    null_vers_na(donnees_combin)
   ),
   tar_target(
     date,
-    sapply(dat$date_obs, convertir_date)
+    sapply(donnees_combin$date_obs, convertir_date)
   ),
   tar_target(
     booleen_variable,
-    sapply(dat$variable, presence)
+    sapply(donnees_combin$variable, presence)
   )
 )
 
