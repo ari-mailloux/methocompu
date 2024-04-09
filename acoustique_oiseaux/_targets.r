@@ -24,11 +24,11 @@ list(
   ),
   tar_target(
     date,
-    sapply(donnees_combin$date_obs, convertir_date)
+    sapply(null_en_na$date_obs, convertir_date)
   ),
   tar_target(
     booleen_variable,
-    sapply(donnees_combin$variable, presence)
+    sapply(null_en_na$variable, presence)
   )
 )
 
