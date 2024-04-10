@@ -67,8 +67,8 @@ source("format_heure.R")
 resultat_obs<-sapply(df$time_obs,verifier_format_heure)
 mistake_obs <- grep(FALSE, resultat_obs)
 source("erreur_heure.R") #ne veut pas s'afficher seule...
-# il faut mettre ca, je sais pas comment faire sans, mais c'est comme si je demandais
-#d'appliquer la fonction sur le mistake_obs...
+# il faut mettre check_mistakes(mistake_obs), je sais pas comment faire sans, mais c'est comme si je demandais
+#d'appliquer la fonction sur le mistake_obs mais c'est déjà fait dans l'autre document...
 
 #ça sort "Oui", il y a donc des erreurs
 
@@ -92,11 +92,7 @@ source("time_finish.R")
 #ça sort "Oui", il y a erreur
 
 #vérifier si les erreurs sont tout simplement des NA
-length(mistake_finish) #combien d'erreurs de format?
-intermed <- is.na(df$time_finish) 
-val.manquantes <- grep(TRUE,intermed)
-length(val.manquantes) #combien de valeurs manquantes?
-#puisqu'il y a 1 erreur de format et 1 valeur NA, la seule erreur de format est la valeur NA.
+source("NA_finish.R")
 
 #Changer le nom de la colonne order pour ordre
 names(df)[names(df) == "order"] <- "ordre"
