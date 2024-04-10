@@ -90,11 +90,8 @@ library(dplyr)
 #Vérifier le format de la colonne time_finish
 resultat_finish<-sapply(df$time_finish,verifier_format_heure)
 mistake_finish <- grep(FALSE, resultat_finish)
-if (length(mistake_finish) > 0) {
-  cat("Oui")
-} else {
-  cat("Non")
-}
+source("time_finish.R")
+
 #ça sort "Oui", il y a erreur
 
 #vérifier si les erreurs sont tout simplement des NA
