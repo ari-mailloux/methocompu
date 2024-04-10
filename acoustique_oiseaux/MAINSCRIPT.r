@@ -81,13 +81,11 @@ length(val.manquantes1) #combien de NA?
 
 #Vérifier le format de la colonne time_start
 resultat_start<-sapply(df$time_start,verifier_format_heure)
-mistake_start <- grep(FALSE, resultat_start)
-if (length(mistake_start) > 0) {
-  cat("Oui")
-} else {
-  cat("Non")
-}
+mistake_start <- grep(FALSE, resultat_start) #il ne marche pas
+source("time_start.R")
+
 #ça sort "Non", il n'y a pas d'erreurs
+
 library(dplyr)
 #Vérifier le format de la colonne time_finish
 resultat_finish<-sapply(df$time_finish,verifier_format_heure)
