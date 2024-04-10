@@ -67,7 +67,7 @@ source("format_heure.R")
 resultat_obs<-sapply(df$time_obs,verifier_format_heure)
 mistake_obs <- grep(FALSE, resultat_obs)
 source("erreur_heure.R") #ne veut pas s'afficher seule...
-check_mistakes(mistake_obs) # il faut mettre ca, je sais pas comment faire sans, mais c'est comme si je demandais
+# il faut mettre ca, je sais pas comment faire sans, mais c'est comme si je demandais
 #d'appliquer la fonction sur le mistake_obs...
 
 #ça sort "Oui", il y a donc des erreurs
