@@ -73,11 +73,8 @@ check_mistakes(mistake_obs) # il faut mettre ca, je sais pas comment faire sans,
 #ça sort "Oui", il y a donc des erreurs
 
 #Vérifier si les erreurs sont juste des NA
-length(mistake_obs) #combien d'erreurs de format?
-intermed1 <- is.na(df$time_obs) 
-val.manquantes1 <- grep(TRUE,intermed1)
-length(val.manquantes1) #combien de NA?
-#Il y a 2515 NA et 2515 erreurs de format ; toutes les erreurs de format sont donc des NA
+source("NA_heure.R")
+
 
 #Vérifier le format de la colonne time_start
 resultat_start<-sapply(df$time_start,verifier_format_heure)
