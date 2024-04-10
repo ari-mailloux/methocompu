@@ -37,11 +37,9 @@ source("virgules_latitude.R")
 
 #Vérifier que chaque site a une seule latitude
 latitude <- aggregate(lat ~ site_id, df, function(x) length(unique(x)) == 1)
-latitude
 
 #Vérifirer que la latitude se trouve dans le Québec (entre 45 et 63)
 qc <- all(df$lat >= 45 & df$lat <= 63)
-qc
 
 #Vérifier les combinaisons dans les espèces
 
