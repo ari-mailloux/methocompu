@@ -1,0 +1,48 @@
+# Création du graphique d'observations par heure en utilisant les données filtrées
+donnees_non_na <- heure[!is.na(heure$heure_formattee), ]
+obs_par_heure <- barplot(donnees_non_na$nb_obs, 
+                         names.arg = donnees_non_na$heure_formattee, 
+                         ylab = "Nombre d'observation", 
+                         xlab = "Heure", 
+                         col = "skyblue",
+                         ylim = c(0, 6000),
+                         las = 2,
+                         cex.names = 0.6,
+                         main= "Nombre d'observations de les tous oiseaux\nconfondus en fonction de l'heure")
+
+
+# Afficher le graphique
+print(obs_par_heure)
+
+#Création du graphique d'observations de paruline du Canada par heure
+par_donnees_non_na <- obs_par_cana[!is.na(obs_par_cana$heure_formattee), ]
+
+obs_par_cana_heure <- barplot(par_donnees_non_na$nb_obs, 
+                              names.arg = par_donnees_non_na$heure_formattee, 
+                              ylab = "Nombre d'observation", 
+                              xlab = "Heure", 
+                              col = "skyblue",
+                              ylim = c(0, 40),
+                              las = 2,
+                              cex.names = 0.6,
+                              main= "Nombre d'observations de Cardellina canadensis\nen fonction de l'heure")
+
+
+# Afficher le graphique
+print(obs_par_cana_heure)
+
+
+
+# Création du graphique d'espèces par heure
+div_non_na <- diversite_heure[!is.na(diversite_heure$heure_formattee), ]
+
+div_par_heure <- barplot(div_non_na$nb_valid_scientific_names, 
+                         names.arg = div_non_na$heure_formattee, 
+                         ylab = "Nombre d'espèces distinctes", 
+                         xlab = "Heure", 
+                         col = "skyblue",
+                         ylim = c(0, 150),
+                         las = 2,
+                         cex.names = 0.6,
+                         main= "Nombre d'espèces\nen fonction de l'heure")
+print(div_par_heure)
