@@ -22,7 +22,7 @@ df$variable<-sapply(df$variable, presence)
 names(df)[names(df) == "variable"] <- "presence"
 
 # ajout des colonnes du numéro d'observation (identificateur unique) et du type de projection
-source("ajout.col.R")
+source("ajout_col.R")
 
 # Vérifier qu'il y a que des points dans la latitude
 source("virgules_latitude.R")
@@ -64,7 +64,6 @@ source("erreur_heure.R") #ne veut pas s'afficher seule...
 
 #Vérifier si les erreurs sont juste des NA
 source("NA_heure.R")
-
 
 #Vérifier le format de la colonne time_start
 resultat_start<-sapply(df$time_start,verifier_format_heure)
