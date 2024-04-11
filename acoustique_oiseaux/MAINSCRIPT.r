@@ -1,10 +1,6 @@
 #Ce scripte a été écrit pour les données portant sur les oiseaux.
 
-#Le répertoire de travail (working directory) doit être le dossier contenant tous les fichiers de données.
-#Les scriptes R des fonctions doivent également s'y retrouver.
-
 #importer base de données dans R
-
 fichiers <- list.files(pattern = "\\.csv$")
 dat <- lapply(fichiers, read.csv)
 
@@ -110,21 +106,12 @@ dbSendQuery(conn, "DROP TABLE site;")
 dbSendQuery(conn, "DROP TABLE taxo;")
 source("creation_db.R")
 
-#Requête SQL qui permet de dire le nombre d'observation par heure
-#Note: Il y a rien entre 13h et 19h. Aucun échantillonnage dans ces heures?
-par_heure<- "
- SELECT STRFTIME('%H:00:00', time_obs) AS heure_formattee, COUNT(*) AS nb_obs
-  FROM obs
-  GROUP BY STRFTIME('%H:00:00', time_obs)
-  ORDER BY heure_formattee;"
+#Requêtes SQL
+source("requetes_SQL.R")
 
-#Tableau avec le nombre d'observations selon l'heure
-heure<-dbGetQuery(conn, par_heure)
 
+# Création du graphique d'observations par heure en utilisant les données filtrées
 donnees_non_na <- heure[!is.na(heure$heure_formattee), ]
-
-
-# Création du graphique à barres en utilisant les données filtrées
 obs_par_heure <- barplot(donnees_non_na$nb_obs, 
                   names.arg = donnees_non_na$heure_formattee, 
                   ylab = "Nombre d'observation", 
@@ -139,18 +126,7 @@ obs_par_heure <- barplot(donnees_non_na$nb_obs,
 # Afficher le graphique
 print(obs_par_heure)
 
-#Requête SQL qui dit le nombre d'observation de la chouette rayée selon l'heure
-paruline_canada<-"
-  SELECT valid_scientific_name, STRFTIME('%H:00:00', time_obs) AS heure_formattee, COUNT(*) AS nb_obs
-  FROM obs
-  WHERE valid_scientific_name= 'Cardellina canadensis'
-  GROUP BY STRFTIME('%H:00:00', time_obs)
-  ORDER BY heure_formattee;"
-
-#Sort le tableau avec le nombre d'observations de chouette rayée selon l'heure
-obs_par_cana<-dbGetQuery(conn, paruline_canada)
-head(obs_par_cana)
-
+#Création du graphique d'observations de paruline du Canada par heure
 par_donnees_non_na <- obs_par_cana[!is.na(obs_par_cana$heure_formattee), ]
 
 obs_par_cana_heure <- barplot(par_donnees_non_na$nb_obs, 
@@ -169,16 +145,7 @@ print(obs_par_cana_heure)
 
 
 
-diversite<- "
- SELECT STRFTIME('%H:00:00', time_obs) AS heure_formattee, COUNT(DISTINCT valid_scientific_name) AS nb_valid_scientific_names
-  FROM obs
-  WHERE rank = 'species'
-  GROUP BY STRFTIME('%H:00:00', time_obs)
-  ORDER BY heure_formattee;"
-diversite_heure<-dbGetQuery(conn, diversite)
-
-head(diversite_heure)
-
+# Création du graphique d'espèces par heure
 div_non_na <- diversite_heure[!is.na(diversite_heure$heure_formattee), ]
 
 div_par_heure <- barplot(div_non_na$nb_valid_scientific_names, 
