@@ -31,7 +31,7 @@ source("virgules_latitude.R")
 source("site_lat.R")
 
 #Vérifirer que la latitude se trouve dans le Québec (entre 45 et 63)
-qc <- all(df$lat >= 45 & df$lat <= 63)
+source("lat_qc.R")
 
 #Vérifier les combinaisons dans les espèces
 
