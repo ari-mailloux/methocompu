@@ -195,3 +195,5 @@ diversite<- "
   GROUP BY STRFTIME('%H:00:00', time_obs)
   ORDER BY heure_formattee;"
 diversite_heure<-dbGetQuery(conn, diversite)
+
+dbDisconnect(conn)
