@@ -22,14 +22,9 @@ df$variable<-sapply(df$variable, presence)
 names(df)[names(df) == "variable"] <- "presence"
 
 # ajout des colonnes du numéro d'observation (identificateur unique) et du type de projection
-ID_obs<-c(1:nrow(df)) 
-df$ID_obs<-ID_obs
-# il faut mettre ça dans une fonction
-
-df$projection<-"projection conique conforme de Lambert du Québec (SRCS=6622)"
+source("ajout.col.R")
 
 # Vérifier qu'il y a que des points dans la latitude
-
 source("virgules_latitude.R")
 
 #Vérifier que chaque site a une seule latitude
