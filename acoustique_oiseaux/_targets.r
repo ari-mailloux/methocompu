@@ -4,10 +4,6 @@ tar_option_set(packages = c("rmarkdown", "dplyr", "RSQLite"))
 source("null_vers_na.R")
 source("convertir_date.R")
 source("bool.R")
-source("ajout_col.R")
-
-
-
 
 list(
   tar_target(
@@ -33,14 +29,6 @@ list(
   tar_target(
     booleen_variable,
     sapply(null_en_na$variable, presence)
-  ),
-  tar_target(
-  id_obs,
-  null_en_na<-ajouter_ID_obs(null_en_na)
-  ),
-  tar_target(
-  projection,
-  ajouter_projection(id_obs)
   )
 )
 
