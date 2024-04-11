@@ -153,14 +153,14 @@ obs_par_heure <- barplot(donnees_non_na$nb_obs,
 print(obs_par_heure)
 
 #Requête SQL qui dit le nombre d'observation de la chouette rayée selon l'heure
-chouette_rayee<-"
+martinet_ramoneur<-"
   SELECT valid_scientific_name, STRFTIME('%H:00:00', time_obs) AS heure_formattee, COUNT(*) AS nb_obs
   FROM obs
-  WHERE valid_scientific_name= 'Strix varia'
+  WHERE valid_scientific_name= 'Chaetura pelagica'
   GROUP BY STRFTIME('%H:00:00', time_obs)
   ORDER BY heure_formattee;"
 
 #Sort le tableau avec le nombre d'observations de chouette rayée selon l'heure
-obs_chouette<-dbGetQuery(conn, chouette_rayee)
+obs_martinet<-dbGetQuery(conn, martinet_ramoneur)
 
 dbDisconnect(conn)
