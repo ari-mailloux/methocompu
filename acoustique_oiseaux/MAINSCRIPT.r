@@ -139,14 +139,19 @@ donnees_non_na <- heure[!is.na(heure$heure_formattee), ]
 
 
 # Création du graphique à barres en utilisant les données filtrées
-graph2 <- barplot(donnees_non_na$nb_obs, 
+obs_par_heure <- barplot(donnees_non_na$nb_obs, 
                   names.arg = donnees_non_na$heure_formattee, 
                   ylab = "Nombre d'observation", 
                   xlab = "Heure", 
-                  col = "skyblue")
+                  col = "skyblue",
+                  ylim = c(0, 6000),
+                  las = 2,
+                  cex.names = 0.6)
+
 
 # Afficher le graphique
-print(graph2)
+print(obs_par_heure)
+
 #Requête SQL qui dit le nombre d'observation de la chouette rayée selon l'heure
 chouette_rayee<-"
   SELECT valid_scientific_name, STRFTIME('%H:00:00', time_obs) AS heure_formattee, COUNT(*) AS nb_obs
