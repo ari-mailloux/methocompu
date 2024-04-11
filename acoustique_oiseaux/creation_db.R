@@ -54,3 +54,8 @@ creer_taxo <-
     PRIMARY KEY (valid_scientific_name)
   );"
 dbSendQuery(conn, creer_taxo)
+
+dbWriteTable(conn, append = TRUE, name = "site", value = endroit_u, row.names = FALSE)
+dbWriteTable(conn, append = TRUE, name = "taxo", value = taxo_u, row.names = FALSE)
+dbWriteTable(conn, append = TRUE, name = "obs", value = Oiseau, row.names = FALSE)
+dbWriteTable(conn, append = TRUE, name = "effort_e", value = effort_u, row.names = FALSE)

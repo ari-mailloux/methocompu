@@ -28,6 +28,7 @@ names(df)[names(df) == "variable"] <- "presence"
 # ajout des colonnes du numéro d'observation (identificateur unique) et du type de projection
 ID_obs<-c(1:nrow(df)) 
 df$ID_obs<-ID_obs
+# il faut mettre ça dans une fonction
 
 df$projection<-"projection conique conforme de Lambert du Québec (SRCS=6622)"
 
@@ -108,11 +109,6 @@ dbSendQuery(conn, "DROP TABLE obs;")
 dbSendQuery(conn, "DROP TABLE site;")
 dbSendQuery(conn, "DROP TABLE taxo;")
 source("creation_db.R")
-
-dbWriteTable(conn, append = TRUE, name = "site", value = endroit_u, row.names = FALSE)
-dbWriteTable(conn, append = TRUE, name = "taxo", value = taxo_u, row.names = FALSE)
-dbWriteTable(conn, append = TRUE, name = "obs", value = Oiseau, row.names = FALSE)
-dbWriteTable(conn, append = TRUE, name = "effort_e", value = effort_u, row.names = FALSE)
 
 #Requête SQL qui permet de dire le nombre d'observation par heure
 #Note: Il y a rien entre 13h et 19h. Aucun échantillonnage dans ces heures?
