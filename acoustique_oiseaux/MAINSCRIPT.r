@@ -118,7 +118,6 @@ source("db_effort_e.R")
 dbSendQuery(conn, "DROP TABLE obs;")
 source("db_obs.R")
 
-
 dbWriteTable(conn, append = TRUE, name = "site", value = endroit_u, row.names = FALSE)
 dbWriteTable(conn, append = TRUE, name = "taxo", value = taxo_u, row.names = FALSE)
 dbWriteTable(conn, append = TRUE, name = "obs", value = Oiseau, row.names = FALSE)
@@ -153,14 +152,14 @@ obs_par_heure <- barplot(donnees_non_na$nb_obs,
 print(obs_par_heure)
 
 #Requête SQL qui dit le nombre d'observation de la chouette rayée selon l'heure
-martinet_ramoneur<-"
+paruline_canada<-"
   SELECT valid_scientific_name, STRFTIME('%H:00:00', time_obs) AS heure_formattee, COUNT(*) AS nb_obs
   FROM obs
-  WHERE valid_scientific_name= 'Chaetura pelagica'
+  WHERE valid_scientific_name= 'Cardellina canadensis'
   GROUP BY STRFTIME('%H:00:00', time_obs)
   ORDER BY heure_formattee;"
 
 #Sort le tableau avec le nombre d'observations de chouette rayée selon l'heure
-obs_martinet<-dbGetQuery(conn, martinet_ramoneur)
+obs_par_cana<-dbGetQuery(conn, paruline_canada)
 
 dbDisconnect(conn)
