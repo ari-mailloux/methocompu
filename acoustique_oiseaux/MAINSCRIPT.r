@@ -179,4 +179,19 @@ obs_par_cana_heure <- barplot(par_donnees_non_na$nb_obs,
 
 # Afficher le graphique
 print(obs_par_cana_heure)
-dbDisconnect(conn)
+
+
+#3e requête SQL
+niveau_espece<-"
+  SELECT *
+    FROM taxo
+    WHERE rank = 'species'
+;"
+
+diversite<- "
+ SELECT STRFTIME('%H:00:00', time_obs) AS heure_formattee, COUNT(DISTINCT valid_scientific_name) AS nb_valid_scientific_names
+  FROM obs
+  WHERE rank = 'species'
+  GROUP BY STRFTIME('%H:00:00', time_obs)
+  ORDER BY heure_formattee;"
+diversite_heure<-dbGetQuery(conn, diversite)
