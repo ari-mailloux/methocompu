@@ -102,21 +102,12 @@ library(RSQLite)
 
 conn<-dbConnect(SQLite(), dbname="accousitque.db")
 
-#Creation de la table qui contient les informations relatives aux sites d'echantillonage
-dbSendQuery(conn, "DROP TABLE site;")
-source("db_site.R")
-
-#Creation de la table qui contient les informations relatives a la taxonomie des especes
-dbSendQuery(conn, "DROP TABLE taxo;")
-source("db_taxo.R")
-
-#Creation de la table qui contient les informations relatives a l'effort d'echantillonnage
+#Creation de la base de donnees
 dbSendQuery(conn, "DROP TABLE effort_e;")
-source("db_effort_e.R")
-
-#Creation de la table qui contient les informations relatives aux observations
 dbSendQuery(conn, "DROP TABLE obs;")
-source("db_obs.R")
+dbSendQuery(conn, "DROP TABLE site;")
+dbSendQuery(conn, "DROP TABLE taxo;")
+source("creation_db.R")
 
 dbWriteTable(conn, append = TRUE, name = "site", value = endroit_u, row.names = FALSE)
 dbWriteTable(conn, append = TRUE, name = "taxo", value = taxo_u, row.names = FALSE)
