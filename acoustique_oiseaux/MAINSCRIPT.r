@@ -50,7 +50,12 @@ erre<-lapply(doub, compter_faux) #applique la fonction dans la liste
     #erreur dans Anatidae, Dryobates pubescens, Passeriformes et Vireo
 
 #correction des erreurs
-source("correction_erreurs.R")
+source("correction_anatidae.R")
+source("correction_dryobates.R")
+source("correction_passeri.R")
+source("correction_tarin.R")
+source("correction_troglo.R")
+source("correction_vireo.R")
 
 #Vérifier le format de l'heure d'observation
 source("format_heure.R")
