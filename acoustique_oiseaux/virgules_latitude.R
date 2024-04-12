@@ -1,10 +1,9 @@
-verifier_virgules <- function(df, lat) {
-  indices <- grep(",", df$lat)
+verifier_virgules <- function(datafr, col) {
+  indices <- grep(",", datafr[[col]])
   if (length(indices) > 0) {
-    return("Oui") # Présence d'au moins une virgule
+    datafr[[col]] <- gsub(",", ".", datafr[[col]])
+    return(datafr) 
   } else {
-    return("Non") # Que des points
+    return("Non")
   }
 }
-resultat <- verifier_virgules(df, "lat")
-cat("Virgules présentes :", resultat, "\n")
