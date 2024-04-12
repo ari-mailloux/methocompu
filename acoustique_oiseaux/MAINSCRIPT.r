@@ -17,9 +17,9 @@ df$date_obs<-sapply(df$date_obs, convertir_date)
 #transformer la colonne "variable" pour que les données soient en format booléen
 source("bool.R")
 df$variable<-sapply(df$variable, presence)
-## erreur avec la ligne ci-dessus
+
 #changer le titre de la colonne variable pour un terme plus adéquat
-names(df)[names(df) == "variable"] <- "presence"
+source("var_pres.R")
 
 # ajout des colonnes du numéro d'observation (identificateur unique) et du type de projection
 source("ajout_col.R")

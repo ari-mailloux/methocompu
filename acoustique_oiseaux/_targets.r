@@ -9,6 +9,7 @@ source("ajout_proj.R")
 source("virgules_latitude.R")
 source("site_lat.R")
 source("lat_qc.R")
+source("var_pres.R")
 
 list(
   tar_target(
@@ -36,6 +37,10 @@ list(
     sapply(null_en_na$variable, presence)
   ),
   tar_target(
+    pres,
+    rename_variable(null_en_na)
+  ),
+  tar_target(
     id_obs,
     ajouter_ID_obs(null_en_na)
   ),
@@ -45,7 +50,7 @@ list(
   ),
   tar_target(
     data_frame,
-    cbind(projection, date, booleen_variable)
+    cbind(projection, date, booleen_variable, pres)
   ),
   tar_target(
     verif_virg,
