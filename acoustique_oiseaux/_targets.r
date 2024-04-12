@@ -10,6 +10,8 @@ source("virgules_latitude.R")
 source("site_lat.R")
 source("lat_qc.R")
 source("var_pres.R")
+source("regroup.R")
+source("compter_faux.R")
 
 list(
   tar_target(
@@ -63,7 +65,24 @@ list(
   tar_target(
     lat_queb,
     verifier_qc(data_frame, "lat")
+  ),
+  tar_target(
+    combinaison,
+    data.frame(data_frame,"valid_scientific_name","vernacular_en", "vernacular_fr", "species", "kingdom", "phylum", "family", "genus", "rank")
+  ),
+  tar_target(
+  groupe_par_espece,
+  regroup(combinaison)
+  ),
+  tar_target(
+    doublons,
+    lapply(groupe_par_espece, duplicated)
+  ),
+  tar_target(
+    comptage_faux,
+    compter_faux(doublons)
   )
 )
+
 
 
