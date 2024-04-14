@@ -24,3 +24,6 @@
 -   `obs` réfère à une table contenant les informations relative aux observations
 -   `effort_e` réfère à une table contenant les informations relative à l'effort d'échnatillonage
 -   `site` réfère à une table contenant les informations relative au site
+
+## Validation des données
+
