@@ -13,6 +13,11 @@ source("var_pres.R")
 source("regroup.R")
 source("compter_faux.R")
 source("correction_anatidae.R")
+source("correction_dryobates.R")
+source("correction_passeri.R")
+source("correction_tarin.R")
+source("correction_troglo.R")
+source("correction_vireo.R")
 
 list(
   tar_target(
@@ -86,6 +91,26 @@ list(
   tar_target(
     anatidae,
     replace_anatidae(data_frame)
+  ),
+  tar_target(
+    dryobates,
+    replace_dry(anatidae)
+  ),
+  tar_target(
+    passeriformes,
+    correction_passeriformes(dryobates)
+  ),
+  tar_target(
+    tarins,
+    replace_car(passeriformes)
+  ),
+  tar_target(
+    troglodytes,
+    replace_tro(tarins)
+  ),
+  tar_target(
+    corr_finales,
+    replace_vir(troglodytes)
   )
 )
 
