@@ -71,22 +71,22 @@ source("erreur_heure.R") #ne veut pas s'afficher seule...
 source("NA_heure.R")
 
 #Vérifier le format de la colonne time_start
-resultat_start<-sapply(df$time_start,verifier_format_heure)
-mistake_start <- grep(FALSE, resultat_start) #il ne marche pas
-source("time_start.R")
+#resultat_start<-sapply(df$time_start,verifier_format_heure)
+#mistake_start <- grep(FALSE, resultat_start) #il ne marche pas
+#source("time_start.R")
 
 #ça sort "Non", il n'y a pas d'erreurs
 
-library(dplyr)
+#library(dplyr)
 #Vérifier le format de la colonne time_finish
-resultat_finish<-sapply(df$time_finish,verifier_format_heure)
-mistake_finish <- grep(FALSE, resultat_finish)
-source("time_finish.R")
+#resultat_finish<-sapply(df$time_finish,verifier_format_heure)
+#mistake_finish <- grep(FALSE, resultat_finish)
+#source("time_finish.R")
 
 #ça sort "Oui", il y a erreur
 
 #vérifier si les erreurs sont tout simplement des NA
-source("NA_finish.R")
+#source("NA_finish.R")
 
 #Changer le nom de la colonne order pour ordre
 names(df)[names(df) == "order"] <- "ordre"

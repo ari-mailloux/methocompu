@@ -18,6 +18,10 @@ source("correction_passeri.R")
 source("correction_tarin.R")
 source("correction_troglo.R")
 source("correction_vireo.R")
+source("format_heure.R")
+source("erreur_heure.R")
+source("NA_heure.R")
+source("ordre.R")
 
 list(
   tar_target(
@@ -89,6 +93,22 @@ list(
     compter_faux(doublons)
   ),
   tar_target(
+    verif_format_heure,
+    sapply(data_frame$time_obs, verifier_format_heure)
+  ),
+  tar_target(
+    faux_heure,
+    grep(FALSE, verif_format_heure)
+  ),
+  tar_target(
+    nb_erreur,
+    check_mistakes(faux_heure)
+  ),
+  tar_target(
+    erreur_na,
+    check_NA_heure(data_frame)
+  ),
+  tar_target(
     anatidae,
     replace_anatidae(data_frame)
   ),
@@ -111,6 +131,10 @@ list(
   tar_target(
     corr_finales,
     replace_vir(troglodytes)
+  ),
+  tar_target(
+    bd_complet,
+    sapply(troglodytes$time_obs, rename_col)
   )
 )
 
