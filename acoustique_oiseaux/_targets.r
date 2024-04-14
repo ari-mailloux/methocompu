@@ -22,6 +22,7 @@ source("format_heure.R")
 source("erreur_heure.R")
 source("NA_heure.R")
 source("ordre.R")
+source("creation_tables.R")
 
 list(
   tar_target(
@@ -133,8 +134,16 @@ list(
     replace_vir(troglodytes)
   ),
   tar_target(
+    ordre,
+    sapply(corr_finales$time_obs, rename_col)
+  ),
+  tar_target(
     bd_complet,
-    sapply(troglodytes$time_obs, rename_col)
+    cbind(ordre, troglodytes)
+    ),
+  tar_target(
+    creation_tables,
+    creer_tables(bd_complet)
   )
 )
 
