@@ -12,6 +12,7 @@ source("lat_qc.R")
 source("var_pres.R")
 source("regroup.R")
 source("compter_faux.R")
+source("correction_anatidae.R")
 
 list(
   tar_target(
@@ -81,6 +82,10 @@ list(
   tar_target(
     comptage_faux,
     compter_faux(doublons)
+  ),
+  tar_target(
+    anatidae,
+    replace_anatidae(data_frame)
   )
 )
 
