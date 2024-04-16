@@ -1,6 +1,7 @@
 library(targets)
 tar_option_set(packages = c("rmarkdown", "dplyr", "RSQLite"))
 
+
 source("null_vers_na.R")
 source("convertir_date.R")
 source("bool.R")
@@ -23,6 +24,7 @@ source("erreur_heure.R")
 source("NA_heure.R")
 source("ordre.R")
 source("creation_tables.R")
+source("unicite_tables.R")
 
 list(
   tar_target(
@@ -144,6 +146,10 @@ list(
   tar_target(
     creation_tables,
     creer_tables(bd_complet)
+  ),
+  tar_target(
+    tables_uniques,
+    traiter_data(creation_tables)
   )
 )
 

@@ -1,10 +1,11 @@
 
 # Creation de la premiÃ¨re table (Endroit) #
 #Endroit<-data.frame(
- # site_id = df$site_id, 
+  #site_id = df$site_id, 
   #lat = df$lat,
   #projection = df$projection
 #)
+
 
 #On met les doublons pour créer des valeurs uniques
 #endroit_u<-Endroit %>%
@@ -56,15 +57,21 @@
   #distinct(site_id, time_start, time_finish, date_obs ,.keep_all = TRUE)
 
 creer_tables <- function(tables) {
-  Endroits <- data.frame(site_id = tables$site_id, lat = tables$lat, projection = tables$projection)
-  Oiseaux <- data.frame( presence = tables$presence,
-                        id_obs = tables$ID_obs,
-                        time_obs = tables$time_obs,
-                        valid_scientific_name = tables$valid_scientific_name,
-                        rank = tables$rank,
-                        date_obs = tables$date_obs
-                        )
-   Taxonomie<- data.frame(
+  
+  # Création de la table Endroits
+  endroits <- data.frame(site_id = tables$site_id, lat = tables$lat, projection = tables$projection)
+  
+  # Création de la table Oiseaux
+  oiseaux <- data.frame( presence = tables$presence,
+                         id_obs = tables$ID_obs,
+                         time_obs = tables$time_obs,
+                         valid_scientific_name = tables$valid_scientific_name,
+                         rank = tables$rank,
+                         date_obs = tables$date_obs
+  )
+ 
+  # Création de la table Taxonomie
+  taxonomie<- data.frame(
     valid_scientific_name = tables$valid_scientific_name,
     rank = tables$rank,
     vernacular_en = tables$vernacular_en,
@@ -77,13 +84,14 @@ creer_tables <- function(tables) {
     genus = tables$genus,
     species = tables$species
   )
-   effort<-data.frame(
-     site_id = tables$site_id,
-     time_start = tables$time_start,
-     time_finish = tables$time_finish,
-     date_obs=tables$date_obs
-   )
   
-  # Retourner les tables dans une liste
-  list(table1 = Endroits, table2 = Oiseaux, table3 = Taxonomie, table4 = effort)
+  # Création de la table Effort
+  effort<-data.frame(
+    site_id = tables$site_id,
+    time_start = tables$time_start,
+    time_finish = tables$time_finish,
+    date_obs=tables$date_obs
+  )
 }
+
+
