@@ -1,8 +1,6 @@
-#Creation de la base de donnée "Effort d'échantillonnage"
-conn<-dbConnect(SQLite(), dbname="accoustique.db")
-
-creer_effort_e <- 
-  "CREATE TABLE effort_e (
+dbSQL<- function(dfSQL) {
+  creer_effort_e <- 
+  "CREATE TABLE IF NOT EXISTS effort_e (
     site_id                 INTEGER,
     time_start              VARCHAR(50),
     time_finish             VARCHAR(50),
@@ -11,11 +9,11 @@ creer_effort_e <-
     FOREIGN KEY (site_id) REFERENCES site(site_id),
     FOREIGN KEY (date_obs) REFERENCES obs(date_obs)
   );"
-dbSendQuery(conn, creer_effort_e)
+  dbSendQuery(dfSQL, creer_effort_e)
 
 #Creation de la base de donnée "Observation"
 creer_obs <- 
-  "CREATE TABLE obs (
+  "CREATE TABLE IF NOT EXISTS obs (
     presence                BOLEAN,
     date_obs                DATE,
     id_obs                  INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -27,21 +25,21 @@ creer_obs <-
     FOREIGN KEY (valid_scientific_name) REFERENCES taxo(valid_scientific_name),
     FOREIGN KEY (rank) REFERENCES taxo(rank)
   );"
-dbSendQuery(conn, creer_obs )
+dbSendQuery(dfSQL, creer_obs )
 
 #Creation de la base de donnée "Site"
 creer_site <- 
-  "CREATE TABLE site (
+  "CREATE TABLE IF NOT EXISTS site (
     site_id     INTEGER,
     lat         VARCHAR(20),
     projection  VARCHAR(200),
     PRIMARY KEY (site_id)
   );"
-dbSendQuery(conn, creer_site )
+dbSendQuery(dfSQL, creer_site )
 
 #Creation de la base de donnée "Identité taxonomique"
 creer_taxo <- 
-  "CREATE TABLE taxo (
+  "CREATE TABLE IF NOT EXISTS taxo (
     valid_scientific_name   VARCHAR(50),
     rank                    VARCHAR(50),
     vernacular_en           VARCHAR(50),
@@ -55,9 +53,7 @@ creer_taxo <-
     species                 VARCHAR(50),
     PRIMARY KEY (valid_scientific_name)
   );"
-dbSendQuery(conn, creer_taxo)
-
-dbWriteTable(conn, append = TRUE, name = "site", value = endroit_u, row.names = FALSE)
-dbWriteTable(conn, append = TRUE, name = "taxo", value = taxo_u, row.names = FALSE)
-dbWriteTable(conn, append = TRUE, name = "obs", value = Oiseau, row.names = FALSE)
-dbWriteTable(conn, append = TRUE, name = "effort_e", value = effort_u, row.names = FALSE)
+dbSendQuery(dfSQL, creer_taxo)
+listedb<-list(site = endroit_u, taxo = taxo_u, obs = oiseaux, effort_e = effort_u)
+return(listedb)
+}

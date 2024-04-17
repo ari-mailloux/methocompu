@@ -96,7 +96,7 @@ source("creation_tables.R")
 
 library(RSQLite)
 
-conn<-dbConnect(SQLite(), dbname="accousitque.db")
+conn<-dbConnect(SQLite(), dbname="accoustique.db")
 
 #Creation de la base de donnees
 dbSendQuery(conn, "DROP TABLE effort_e;")

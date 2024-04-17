@@ -25,7 +25,8 @@ source("NA_heure.R")
 source("ordre.R")
 source("creation_tables.R")
 source("unicite_tables.R")
-source("classe.R")
+source("creation_db.R")
+source("insertion_donnees_SQL.R")
 
 list(
   tar_target(
@@ -151,7 +152,19 @@ list(
   tar_target(
     unique_taxo,
     traiter_data(creation_tables$table1, creation_tables$table4, creation_tables$table3)
+  ),
+  tar_target(
+    connexion,
+    dbConnect(SQLite(), dbname="accoustique.db")
+  ),
+  tar_target(
+    bd_SQL,
+    dbSQL(connexion)
   )
+  #tar_target(
+   # insertion,
+    #inserer_donnees(bd_SQL$site, bd_SQL$taxo, bd_SQL$obs, bd_SQL$effort_e)
+  #)
 )
 
 
