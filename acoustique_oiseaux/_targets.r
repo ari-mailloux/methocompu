@@ -25,6 +25,7 @@ source("NA_heure.R")
 source("ordre.R")
 source("creation_tables.R")
 source("unicite_tables.R")
+source("classe.R")
 
 list(
   tar_target(
@@ -137,7 +138,7 @@ list(
   ),
   tar_target(
     ordre,
-    sapply(corr_finales$time_obs, rename_col)
+    sapply(corr_finales$order, rename_col)
   ),
   tar_target(
     bd_complet,
@@ -148,8 +149,8 @@ list(
     creer_tables(bd_complet)
   ),
   tar_target(
-    tables_uniques,
-    traiter_data(creation_tables)
+    unique_taxo,
+    traiter_data(creation_tables$table1, creation_tables$table4, creation_tables$table3)
   )
 )
 

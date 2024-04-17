@@ -92,6 +92,12 @@ creer_tables <- function(tables) {
     time_finish = tables$time_finish,
     date_obs=tables$date_obs
   )
+  liste<-list(table1 = endroits, table2 = oiseaux, table3 = taxonomie, table4 = effort)
+  #return(endroits)
+  #return(oiseaux)
+  #return(taxonomie)
+  #return(effort)
+  return(liste)
 }
 
 

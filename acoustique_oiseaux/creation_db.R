@@ -1,4 +1,6 @@
 #Creation de la base de donnée "Effort d'échantillonnage"
+conn<-dbConnect(SQLite(), dbname="accoustique.db")
+
 creer_effort_e <- 
   "CREATE TABLE effort_e (
     site_id                 INTEGER,
