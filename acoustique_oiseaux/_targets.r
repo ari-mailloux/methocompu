@@ -26,7 +26,7 @@ source("ordre.R")
 source("creation_tables.R")
 source("unicite_tables.R")
 source("creation_db.R")
-source("insertion_donnees_SQL.R")
+source("obs_par_heure.R")
 
 list(
   tar_target(
@@ -150,21 +150,17 @@ list(
     creer_tables(bd_complet)
   ),
   tar_target(
-    unique_taxo,
+    unicite,
     traiter_data(creation_tables$table1, creation_tables$table4, creation_tables$table3)
-  ),
-  tar_target(
-    connexion,
-    dbConnect(SQLite(), dbname="accoustique.db")
-  ),
+    ),
   tar_target(
     bd_SQL,
-    dbSQL(connexion)
+    dbSQL("acoustique.db", unicite$endroit_u, unicite$taxo_u,creation_tables$table2, unicite$effort_u)
+  ),
+  tar_target(
+    observations_par_heure,
+    obs_par_heure(bd_SQL$connexion, bd_SQL$obs, requete)
   )
-  #tar_target(
-   # insertion,
-    #inserer_donnees(bd_SQL$site, bd_SQL$taxo, bd_SQL$obs, bd_SQL$effort_e)
-  #)
 )
 
 
