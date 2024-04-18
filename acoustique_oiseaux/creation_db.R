@@ -1,3 +1,10 @@
+#Fonction pour creer la base de donnees SQL et injecter les donnees
+#L'argument db_name designe la base de donnees
+#endroit_u designe la table contenant les donnees a injecter dans la table SQL site
+#taxo_u designe la table contenant les donnees a injecter dans la table SQL taxo
+#oiseaux designe la table contenant les donnees a injecter dans la table SQL obs
+#effort_u designe la table contenant les donnees a injecter dans la table SQL effort_e
+
 creer_db <- function(db_name, endroit_u, taxo_u, oiseaux, effort_u) {
   # Créer la connexion à la base de données
   connexion <- dbConnect(SQLite(), dbname = db_name)

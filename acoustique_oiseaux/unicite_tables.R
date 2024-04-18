@@ -1,3 +1,8 @@
+#Fonction pour rendre les donnees uniques pour les tables SQL.
+#L'argument unicite_end designe la base de donnees contenant les informations sur l'endroit.
+#unicite_ef designe la base de donnees contenant les informations sur l'effort d'echantillonnage.
+#unicite_tax designe la base de donnees contenant les informations sur la taxonomie.
+
 traiter_data <- function(unicite_end, unicite_ef, unicite_tax) {
   #traiter_data <- function(end, ef, taxo) {
   endroit_u <- unicite_end %>%
