@@ -1,4 +1,5 @@
-#fonction pour aller changer les dates dans les bases de données
+#fonction pour aller changer les dates dans les bases de données.
+#L'argument date_string correspond a la colonne du dataframe contenant des valeurs de date.
 convertir_date <- function(date_string) {
   # Vérifier si la date est au format "jour/mois/année" ou "année/mois/jour"
   if (grepl("/", date_string)) {
