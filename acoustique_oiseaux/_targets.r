@@ -1,7 +1,6 @@
 library(targets)
 tar_option_set(packages = c("rmarkdown", "dplyr", "RSQLite"))
 
-
 source("null_vers_na.R")
 source("convertir_date.R")
 source("bool.R")
@@ -155,11 +154,11 @@ list(
     ),
   tar_target(
     bd_SQL,
-    dbSQL("acoustique.db", unicite$endroit_u, unicite$taxo_u,creation_tables$table2, unicite$effort_u)
+    creer_db("acoustique.db", unicite$endroit_u, unicite$taxo_u,creation_tables$table2, unicite$effort_u)
   ),
   tar_target(
-    observations_par_heure,
-    obs_par_heure(bd_SQL$connexion, bd_SQL$obs, requete)
+    obs_heure,
+    obs_par_heure(bd_$SQLconnexion, bd_SQL$obs)
   )
 )
 

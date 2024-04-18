@@ -14,7 +14,7 @@ traiter_data <- function(unicite_end, unicite_ef, unicite_tax) {
   
   #Imprimer les tables
   #cat("Table Endroit unique :\n")
-  print(endroit_u)
+  #print(endroit_u)
   
   #cat("\nTable Effort unique :\n")
   #print(effort_u)
