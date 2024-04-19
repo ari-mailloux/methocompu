@@ -113,3 +113,4 @@ source("requetes_SQL.R")
 source("graph_creation.R")
 
 dbDisconnect(conn)
+

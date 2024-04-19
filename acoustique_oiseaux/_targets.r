@@ -26,6 +26,9 @@ source("creation_tables.R")
 source("unicite_tables.R")
 source("creation_db.R")
 source("obs_par_heure.R")
+source("paru_canada.R")
+source("diversite.R")
+source("graph_obs_h.R")
 
 list(
   tar_target(
@@ -158,9 +161,20 @@ list(
   ),
   tar_target(
     obs_heure,
-    obs_par_heure(bd_$SQLconnexion, bd_SQL$obs)
+    obs_par_heure(bd_SQL$obs)
+  ),
+  tar_target(
+    paruline_canada,
+    obs_par_cana(bd_SQL$obs)
+  ),
+  tar_target(
+    diversite_par_heure,
+    diversite_heure(bd_SQL$obs)
+  ),
+  tar_target(
+    graph1,
+    graph_1(obs_heure)
   )
 )
-
 
 
