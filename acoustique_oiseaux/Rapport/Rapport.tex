@@ -46,8 +46,9 @@
 
 \templatetype{pnasresearcharticle}  % Choose template
 
-\title{Template for preparing your research report submission to PNAS
-using RMarkdown}
+\title{Détection de la faune aviaire, de la richesse spécifique
+d'oiseaux et de la paruline du Canada (\emph{Cardellina canadensis})
+selon le moment de la journée}
 
 \author[]{Florence Beaudry}
 \author[]{Jasmine Boulanger}
@@ -77,17 +78,17 @@ qui peut mettre en jeu la qualité des données. Comment recenser la
 présence d'un animal si l'on n'est pas capable de savoir qu'il est
 présent? Dans un contexte de changements climatiques, la composition des
 espèces dans les écosystèmes est en constant changement, menaçant
-plusieurs espèces, comme la paruline du Canada (Cardellina canadensis)
-(1). La détectabilité à différentes heures de la journée est établie
-pour cette espèce, basée sur des inventaires effectués entre 2016 et
-2020 au Québec. La quantité d'observations de différents individus et la
-quantité d'observations de différentes espèces sont également établies.
-Ces données permettent d'identifier les moments dans la journée où il
-serait préférable de conduire des inventaires acoustiques, soit
-xxxxxxxxxxxxxxxxx. Les inventaires pendant ces heures optimisent la
-prise de données et augmentent la probabilité de détectabilité. Ceci
-sera primordial dans l'étude des changements de biodiversité et dans le
-suivi des populations de paruline du Canada.
+plusieurs espèces, comme la paruline du Canada (\emph{Cardellina
+canadensis}) (1). La détectabilité à différentes heures de la journée
+est établie pour cette espèce, basée sur des inventaires effectués entre
+2016 et 2020 au Québec. La quantité d'observations de différents
+individus et la quantité d'observations de différentes espèces sont
+également établies. Ces données permettent d'identifier les moments dans
+la journée où il serait préférable de conduire des inventaires
+acoustiques, soit xxxxxxxxxxxxxxxxx. Les inventaires pendant ces heures
+optimisent la prise de données et augmentent la probabilité de
+détectabilité. Ceci sera primordial dans l'étude des changements de
+biodiversité et dans le suivi des populations de paruline du Canada.
 \end{abstract}
 
 \dates{This manuscript was compiled on \today}
@@ -113,33 +114,31 @@ suivi des populations de paruline du Canada.
 
 La détection de faune par inventaire acoustique est une méthode répandue
 afin d'établir la présence ou l'absence d'espèces dans un milieu, en
-particulier pour les espèces vocales comme les oiseaux (Wimmer et al.,
-2013). Le moment de la journée est documenté comme étant un facteur
-d'influence pour l'activité des oiseaux, modulant la probabilité de
-détecter ceux-ci selon l'heure d'échantillonnage (Wimmer et al., 2013).
-De plus, différentes espèces sont actives à différents moments
-(Perreault, 2010). La détectabilité des oiseaux peut entrer en jeu
-lorsque les données se veulent le plus représentatives possible du
-milieu. En particulier, dans l'étude des espèces à statut, il est
-primordial de mettre toutes les chances du côté de l'observateur afin de
-s'assurer de ne pas manquer des occurences de ces espèces. La Paruline
-du Canada (Cardellina canadensis) est une espèce qui a récemment été
-identifiée comme étant une espèce préoccupante par le Comité sur la
-situation des espèces en péril au Canada (COSEPAC, 2020). L'aire de
+particulier pour les espèces vocales comme les oiseaux (2). Le moment de
+la journée est documenté comme étant un facteur d'influence pour
+l'activité des oiseaux, modulant la probabilité de détecter ceux-ci
+selon l'heure d'échantillonnage (2). De plus, différentes espèces sont
+actives à différents moments (3). La détectabilité des oiseaux peut
+entrer en jeu lorsque les données se veulent le plus représentatives
+possible du milieu. En particulier, dans l'étude des espèces à statut,
+il est primordial de mettre toutes les chances du côté de l'observateur
+afin de s'assurer de ne pas manquer des occurences de ces espèces. La
+Paruline du Canada (\emph{Cardellina canadensis}) est une espèce qui a
+récemment été identifiée comme étant une espèce préoccupante par le
+Comité sur la situation des espèces en péril au Canada (1). L'aire de
 répartition de cet oiseau chanteur s'étend sur toutes les provinces et
 territoires du pays, en plus de couvrir certaines zones des États-Unis,
-en particulier le long des Appalaches (COSEPAC, 2020). Malgré le déclin
-annuel de 2,9\% connu par cette espèce entre 1970 et 2012, son statut
-s'est amélioré dans les dernières années, puisque le rapport du COSEPAC
-de 2008 lui avait accordé le statut «\,menacé\,» (COSEPAC, 2008;
-Roberto-Charron et al., 2020). Le suivi de la répartition de C.
-canadensis continuera donc à être essentiel afin de documenter la
-progression de cette espèce et de prendre des mesures en conséquent. La
-pression environnementale principale qui affecte les parulines du Canada
-identifiée par Ferrari (2016) est le changement climatique. Plusieurs
-autres espèces sont également affectées par cette menace, menant à des
-modifications des structures des métapopulations dans plusieurs biomes
-(Lovejoy \& Hannah, 2019). Il sera donc pertinent d'étudier l'impact des
+en particulier le long des Appalaches (1). Malgré le déclin annuel de
+2,9\% connu par cette espèce entre 1970 et 2012, son statut s'est
+amélioré dans les dernières années, puisque le rapport du COSEPAC de
+2008 lui avait accordé le statut «\,menacé\,» (4, 5). Le suivi de la
+répartition de \emph{C. canadensis} continuera donc à être essentiel
+afin de documenter la progression de cette espèce et de prendre des
+mesures en conséquent. La pression environnementale principale qui
+affecte les parulines du Canada identifiée par (6) est le changement
+climatique. Plusieurs autres espèces sont également affectées par cette
+menace, menant à des modifications des structures des métapopulations
+dans plusieurs biomes (7). Il sera donc pertinent d'étudier l'impact des
 changements climatiques sur les espèces occupant les mêmes milieux que
 les parulines du Canada.
 
@@ -190,31 +189,31 @@ observations qui se rendaient à l'espèce. La qualité des données était
 ainsi bonifiée pour éviter de compter la même espèce deux fois ou de
 manquer des espèces. Par exemple, deux observations de paruline du
 Canada pourraient avoir été recensées à différents niveaux ; l'une
-d'elle à la famille, indiquant Parulidae, et l'autre à l'espèce,
-indiquant Cardellina canadensis. Ces deux lignes auraient été comptées
-comme des espèces différentes. À l'inverse, plusieurs observations de la
-famille Parulidae pourraient indiquer une paruline du Canada et une
-paruline triste, mais ces espèces seraient comptées comme une seule
-espèce. Une fois les données triées, un graphique a été créé afin de
-représenter la richesse spécifique à chaque heure (figure 2). SPECIFIER
-SI IL MANQUE DES HEURES DANS LA FIGURE
+d'elle à la famille, indiquant \emph{Parulidae}, et l'autre à l'espèce,
+indiquant \emph{Cardellina canadensis}. Ces deux lignes auraient été
+comptées comme des espèces différentes. À l'inverse, plusieurs
+observations de la famille \emph{Parulidae} pourraient indiquer une
+paruline du Canada et une paruline triste, mais ces espèces seraient
+comptées comme une seule espèce. Une fois les données triées, un
+graphique a été créé afin de représenter la richesse spécifique à chaque
+heure (figure 2). SPECIFIER SI IL MANQUE DES HEURES DANS LA FIGURE
 
 Pour répondre à la troisième question, soit l'heure à laquelle les
 parulines du Canada sont le plus détectées, seulement les observations
-ayant identifié C. canadensis jusqu'à l'espèce ont été prises en compte.
-Plus d'une centaine d'observations de cette espèce ont été recensées. Un
-graphique représentant toutes ces observations selon l'heure a été
-produit (figure 3). Celui-ci a permis d'identifier les heures de plus
-grande activité des parulines du Canada, soit 5:00, 6:00 et 7:00 du
-matin.
+ayant identifié \emph{C. canadensis} jusqu'à l'espèce ont été prises en
+compte. Plus d'une centaine d'observations de cette espèce ont été
+recensées. Un graphique représentant toutes ces observations selon
+l'heure a été produit (figure 3). Celui-ci a permis d'identifier les
+heures de plus grande activité des parulines du Canada, soit 5:00, 6:00
+et 7:00 du matin.
 
 \hypertarget{discussion}{%
 \section*{Discussion}\label{discussion}}
 \addcontentsline{toc}{section}{Discussion}
 
 Les résultats ont permis d'établir un profil journalier de détectabilité
-pour toutes les espèces détectées ainsi que pour C. canadensis. Il est
-important de noter que la prise de données montrait seulement les
+pour toutes les espèces détectées ainsi que pour \emph{C. canadensis}.
+Il est important de noter que la prise de données montrait seulement les
 périodes d'échantillonnage pour lesquelles il y avait eu des
 observations. Donc, même si les résultats montrent une détectabilité
 nulle pour certaines heures, soit minuit, 2:00, 9:00, 10:00, 11:00,
@@ -231,7 +230,7 @@ présentement sur l'activité des oiseaux. En effet, il est généralement
 conseillé de débuter l'observation acoustique d'oiseaux une demi-heure
 avant le lever du soleil et de continuer jusqu'à 3 heures et demie à 4
 heures et demie après le lever du soleil pour profiter du maximum
-d'activité (Morgan et al., 1983).
+d'activité (8).
 
 1-À quel moment de la journée est-ce que le plus grand nombre d'oiseaux
 a été détecté?
@@ -260,6 +259,53 @@ parulines du Canada a été détecté?
 situation du {COSEPAC} sur la {Paruline} du {Canada} ({Cardellina}
 canadensis) au {Canada}.} (Comité sur la situation des espèces en péril
 au Canada, Ottawa).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-wimmer_sampling_2013}{}}%
+\CSLLeftMargin{2. }%
+\CSLRightInline{Wimmer J, Towsey M, Roe P, Williamson I (2013)
+\href{https://doi.org/10.1890/12-2088.1}{Sampling environmental acoustic
+recordings to determine bird species richness}. \emph{Ecological
+Applications} 23(6):1419--1428.}
+
+\leavevmode\vadjust pre{\hypertarget{ref-perreault_influence_2010}{}}%
+\CSLLeftMargin{3. }%
+\CSLRightInline{Perreault G (2010) Influence du paysage sur une
+communauté de {Strigidés} en tenant compte de la probabilité de
+détection. Mémoire de maîtrise (Université de Sherbrooke, Sherbrooke,
+Québec).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-cosepac_evaluation_2008}{}}%
+\CSLLeftMargin{4. }%
+\CSLRightInline{COSEPAC (2008) \emph{Évaluation et {Rapport} de
+situation du {COSEPAC} sur la paruline du {Canada} ({Wilsonia}
+canadensis) au {Canada}} (Comité sur la situation des espèces en péril
+au Canada, Ottawa).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-roberto-charron_widely_2020}{}}%
+\CSLLeftMargin{5. }%
+\CSLRightInline{Roberto-Charron A, et al. (2020)
+\href{https://doi.org/10.1186/s40850-020-00056-4}{Widely distributed
+breeding populations of {Canada} warbler ({Cardellina} canadensis)
+converge on migration through {Central} {America}}. \emph{BMC Zoology}
+5(1):10.}
+
+\leavevmode\vadjust pre{\hypertarget{ref-ferrari_presence_2016}{}}%
+\CSLLeftMargin{6. }%
+\CSLRightInline{Ferrari BA (2016) Presence of genetic structure between
+central and climate threatened trailing-edge populations of {Canada}
+warblers ({Cardellina} canadensis). Master's thesis (University of
+Georgia, Athens, Georgia).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-lovejoy_biodiversity_2019}{}}%
+\CSLLeftMargin{7. }%
+\CSLRightInline{Lovejoy TE, Hannah LJ (2019) \emph{Biodiversity and
+{Climate} {Change}} (Yale University Press).}
+
+\leavevmode\vadjust pre{\hypertarget{ref-morgan_estimating_1983}{}}%
+\CSLLeftMargin{8. }%
+\CSLRightInline{Morgan BJT, North PM, Ralph CJ, Scott JM (1983)
+\href{https://doi.org/10.2307/2531357}{Estimating {Numbers} of
+{Terrestrial} {Birds}.} \emph{Biometrics} 39(4):1123.}
 
 \end{CSLReferences}
 

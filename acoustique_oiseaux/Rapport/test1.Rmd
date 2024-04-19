@@ -1,39 +1,25 @@
 ---
 title: Détection de la faune aviaire, de la richesse spécifique d’oiseaux et de la paruline du Canada (*Cardellina canadensis*) selon le moment de la journée
-
-# Use letters for affiliations, numbers to show equal authorship (if applicable) and to indicate the corresponding author
-author:
-  - name: Florence Beaudry
-  - name: Jasmine Boulanger
-  - name: Ariane Mailloux
-  - name: Clara Surprenant
-address:
-  - code: 1
-    address: "Université de Sherbrooke, 2500 Boulevard de l'Université, Sherbrooke, Québec, Canada"
-
-# For footer text
-lead_author_surname: Mailloux
-
-abstract: |
-  Lors d’inventaires acoustiques de faune, la détectabilité est un aspect qui peut mettre en jeu la qualité des données. Comment recenser la présence d’un animal si l’on n’est pas capable de savoir qu’il est présent? Dans un contexte de changements climatiques, la composition des espèces dans les écosystèmes est en constant changement, menaçant plusieurs espèces, comme la paruline du Canada (*Cardellina canadensis*) @cosepac_evaluation_2020. La détectabilité à différentes heures de la journée est établie pour cette espèce, basée sur des inventaires effectués entre 2016 et 2020 au Québec. La quantité d’observations de différents individus et la quantité d’observations de différentes espèces sont également établies. Ces données permettent d’identifier les moments dans la journée où il serait préférable de conduire des inventaires acoustiques, soit xxxxxxxxxxxxxxxxx. Les inventaires pendant ces heures optimisent la prise de données et augmentent la probabilité de détectabilité. Ceci sera primordial dans l’étude des changements de biodiversité et dans le suivi des populations de paruline du Canada.
-
-
-## must be one of: pnasresearcharticle (usual two-column layout), pnasmathematics (one column layout), or pnasinvited (invited submissions only)
-pnas_type: pnasresearcharticle
-
+author: 
+  - Florence Beaudry
+  - Jasmine Boulanger
+  - Ariane Mailloux
+  - Clara Surprenant
+date: "`r Sys.Date()`"
+output: pdf_document
+lang: fr
 bibliography: bibliographie.bib
 csl: pnas.csl
-
-## change to true to add optional line numbering
-lineno: false
-
-output: rticles::pnas_article
-language: fr
 ---
 
-Introduction {.unnumbered}
-========================================
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
+# Résumé
+Lors d’inventaires acoustiques de faune, la détectabilité est un aspect qui peut mettre en jeu la qualité des données. Comment recenser la présence d’un animal si l’on n’est pas capable de savoir qu’il est présent? Dans un contexte de changements climatiques, la composition des espèces dans les écosystèmes est en constant changement, menaçant plusieurs espèces, comme la paruline du Canada (*Cardellina canadensis*) @cosepac_evaluation_2020. La détectabilité à différentes heures de la journée est établie pour cette espèce, basée sur des inventaires effectués entre 2016 et 2020 au Québec. La quantité d’observations de différents individus et la quantité d’observations de différentes espèces sont également établies. Ces données permettent d’identifier les moments dans la journée où il serait préférable de conduire des inventaires acoustiques, soit xxxxxxxxxxxxxxxxx. Les inventaires pendant ces heures optimisent la prise de données et augmentent la probabilité de détectabilité. Ceci sera primordial dans l’étude des changements de biodiversité et dans le suivi des populations de paruline du Canada.
+
+# Introduction
 La détection de faune par inventaire acoustique est une méthode répandue afin d’établir la présence ou l’absence d’espèces dans un milieu, en particulier pour les espèces vocales comme les oiseaux @wimmer_sampling_2013. Le moment de la journée est documenté comme étant un facteur d’influence pour l’activité des oiseaux, modulant la probabilité de détecter ceux-ci selon l’heure d’échantillonnage @wimmer_sampling_2013. De plus, différentes espèces sont actives à différents moments @perreault_influence_2010. La détectabilité des oiseaux peut entrer en jeu lorsque les données se veulent le plus représentatives possible du milieu. En particulier, dans l’étude des espèces à statut, il est primordial de mettre toutes les chances du côté de l’observateur afin de s’assurer de ne pas manquer des occurences de ces espèces. La Paruline du Canada (*Cardellina canadensis*) est une espèce qui a récemment été identifiée comme étant une espèce préoccupante par le Comité sur la situation des espèces en péril au Canada @cosepac_evaluation_2020. L’aire de répartition de cet oiseau chanteur s’étend sur toutes les provinces et territoires du pays, en plus de couvrir certaines zones des États-Unis, en particulier le long des Appalaches @cosepac_evaluation_2020. Malgré le déclin annuel de 2,9% connu par cette espèce entre 1970 et 2012, son statut s’est amélioré dans les dernières années, puisque le rapport du COSEPAC de 2008 lui avait accordé le statut « menacé » [@cosepac_evaluation_2008;@roberto-charron_widely_2020]. Le suivi de la répartition de *C. canadensis* continuera donc à être essentiel afin de documenter la progression de cette espèce et de prendre des mesures en conséquent. La pression environnementale principale qui affecte les parulines du Canada identifiée par @ferrari_presence_2016 est le changement climatique. Plusieurs autres espèces sont également affectées par cette menace, menant à des modifications des structures des métapopulations dans plusieurs biomes @lovejoy_biodiversity_2019. Il sera donc pertinent d’étudier l’impact des changements climatiques sur les espèces occupant les mêmes milieux que les parulines du Canada. 
 
 De l’échantillonnage acoustique a été effectué sur plusieurs sites au Québec entre 2016 et 2020, permettant de recenser les espèces d’oiseaux présentes dans de nombreux différents milieux. Les données récoltées serviront à répondre aux questions suivantes :  
@@ -42,10 +28,9 @@ De l’échantillonnage acoustique a été effectué sur plusieurs sites au Qué
 
 À quel moment de la journée est-ce que la plus grande diversité d’espèces a été détectée? 
 
-À quel moment de la journée est-ce que le plus grand nombre de parulines du Canada a été détecté? 
+À quel moment de la journée est-ce que le plus grand nombre de parulines du Canada a été détecté?
 
-Description de la méthode et des résultats {.unnumbered}
-========================================
+# Description de la méthode et des résultats
 La prise de données s’est basée sur plusieurs périodes d’observation d’environ 15 minutes prises entre 2016 et 2020 au Québec. Les oiseaux détectés ont été répertoriés et identifiés avec le plus de détails possibles ; en revanche, certaines identifications se sont rendues à l’ordre, la famille, ou le genre sans atteindre l’identification de l’espèce. Le niveau d’identification taxonomique a donc été rapporté pour chaque observation. Les autres données incluent la date, les heures de début et de fin de la période d’observation, l’heure de l’observation, la latitude, et le numéro du site. Les données ont d’abord été validées et nettoyées. Pour ce faire, plusieurs vérifications de formatage et d’uniformité des données ont été réalisées. Suite à cette étape, des traitements de données ont été réalisés pour répondre aux questions de recherche. 
 
 Afin de répondre à la première question, soit l’heure à laquelle le plus grand nombre d’oiseaux sont détectés, toutes les observations ont été prises en considération, peu importe le niveau taxonomique atteint lors de l’identification. Un graphique a été créé pour représenter le nombre d’observations à chaque heure (FIGURE 1!!!!!!). SPECIFIER SI IL MANQUE DES HEURES DANS LA FIGURE 
@@ -54,9 +39,7 @@ Afin de déterminer l’heure à laquelle la plus grande diversité d’oiseaux 
 
 Pour répondre à la troisième question, soit l’heure à laquelle les parulines du Canada sont le plus détectées, seulement les observations ayant identifié *C. canadensis* jusqu’à l’espèce ont été prises en compte. Plus d’une centaine d’observations de cette espèce ont été recensées. Un graphique représentant toutes ces observations selon l’heure a été produit (figure 3). Celui-ci a permis d’identifier les heures de plus grande activité des parulines du Canada, soit 5:00, 6:00 et 7:00 du matin. 
 
-Discussion {.unnumbered}
-========================================
-
+# Discussion
 Les résultats ont permis d’établir un profil journalier de détectabilité pour toutes les espèces détectées ainsi que pour *C. canadensis*. Il est important de noter que la prise de données montrait seulement les périodes d’échantillonnage pour lesquelles il y avait eu des observations. Donc, même si les résultats montrent une détectabilité nulle pour certaines heures, soit minuit, 2:00, 9:00, 10:00, 11:00, 15:00, 16:00 et 17:00, il est probable qu’aucun effort d’échantillonnage n’ait été déployé à ces heures. Il serait impossible de différencier une détectabilité nulle d’une absence de période d’échantillonnage puisque les périodes d’échantillonnage n’étaient pas recensées si aucun oiseau n’était détecté. 
 
 En revanche, autant pour les parulines du Canada que pour les autres espèces d’oiseaux, les heures de plus grande activité des oiseaux étaient entre XXXXXXXXXXXXXXXXXXXX, ce qui correspond à ce qui est connu présentement sur l’activité des oiseaux. En effet, il est généralement conseillé de débuter l’observation acoustique d’oiseaux une demi-heure avant le lever du soleil et de continuer jusqu’à 3 heures et demie à 4 heures et demie après le lever du soleil pour profiter du maximum d’activité @morgan_estimating_1983. 
@@ -73,11 +56,4 @@ En revanche, autant pour les parulines du Canada que pour les autres espèces d�
 
 À faire 
 
-
-Références {.unnumbered}
-========================================
-
-<!-- Leave these lines as they are at the end of your .Rmd file to ensure placement of methods & acknowledgements sections before the references-->
-\showmatmethods
-\showacknow
-\pnasbreak
+# Références
