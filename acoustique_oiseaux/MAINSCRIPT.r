@@ -39,14 +39,14 @@ source("lat_qc.R")
 comb <- data.frame(df$valid_scientific_name, df$vernacular_en, df$vernacular_fr, df$species, df$kingdom, df$phylum, df$family, df$genus, df$rank)
 
 #regrouper les données par espèce
-source("regroup.R")
-resultats <- regroup(comb, "df.valid_scientific_name")# On a un dataframe par espèce. On a une liste de dataframes, chaque dataframe est une espèce
-doub<-lapply(resultats, duplicated) # Vérifier si les données sont des doublons dans chacun des dataframes (c'est ce qu'on veut, que les infos soient pareilles)
+#source("regroup.R")
+#resultats <- regroup(comb, "df.valid_scientific_name")# On a un dataframe par espèce. On a une liste de dataframes, chaque dataframe est une espèce
+#doub<-lapply(resultats, duplicated) # Vérifier si les données sont des doublons dans chacun des dataframes (c'est ce qu'on veut, que les infos soient pareilles)
     #normal que le premier est FALSE puisque c'est le premier doublon (les autres sont des doubles du premier, le premier est un non doublon)
 
 #appliquer la fonction pour compter le nombre de faux (s'il y en a plus qu'un, il y a une erreur)
-source("compter_faux.R")
-erre<-lapply(doub, compter_faux) #applique la fonction dans la liste
+#source("compter_faux.R")
+#erre<-lapply(doub, compter_faux) #applique la fonction dans la liste
     #erreur dans Anatidae, Dryobates pubescens, Passeriformes et Vireo
 
 #correction des erreurs
@@ -106,8 +106,18 @@ dbSendQuery(conn, "DROP TABLE taxo;")
 source("creation_db.R")
 
 #Requêtes SQL
-source("requetes_SQL.R")
-
+source("obs_par_heure.R")
+#test pour graphique obs/h, on devait remettre requete SQL à la base
+connexion <- dbConnect(SQLite(), dbname = "acoustique.db")
+requete <- "
+    SELECT STRFTIME('%H:00:00', time_obs) AS heure_formattee, COUNT(*) AS nb_obs
+    FROM obs
+    GROUP BY STRFTIME('%H:00:00', time_obs)
+    ORDER BY heure_formattee;"
+heure <- dbGetQuery(connexion, requete)
+dbDisconnect(connexion)
+source("paru_canada.R")
+source("diversite.R")
 
 #Création des graphiques
 source("graph_creation.R")
