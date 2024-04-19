@@ -7,7 +7,7 @@
 
 creer_db <- function(db_name, endroit_u, taxo_u, oiseaux, effort_u) {
   # Créer la connexion à la base de données
-  connexion <- dbConnect(SQLite(), dbname = db_name)
+  connexion <- dbConnect(SQLite(), dbname = "acoustique.db")
   
   # Réinitialiser les tables
   dbSendQuery(connexion, "DROP TABLE IF EXISTS site;")
@@ -71,17 +71,21 @@ creer_db <- function(db_name, endroit_u, taxo_u, oiseaux, effort_u) {
   dbSendQuery(connexion, creer_site)
   dbSendQuery(connexion, creer_taxo)
   
+  dbDisconnect(connexion)
+  
   # Insérer les données dans les tables
+  connexion <- dbConnect(SQLite(), dbname = "acoustique.db")
+  
   dbWriteTable(connexion, append = TRUE, name = "site", value = endroit_u, row.names = FALSE)
   dbWriteTable(connexion, append = TRUE, name = "taxo", value = taxo_u, row.names = FALSE)
   dbWriteTable(connexion, append = TRUE, name = "obs", value = oiseaux, row.names = FALSE)
   dbWriteTable(connexion, append = TRUE, name = "effort_e", value = effort_u, row.names = FALSE)
   
-  # Appel à obs_par_heure
-  observations_par_heure <- obs_par_heure(connexion, obs)
+  
   
   # Retourner une liste contenant les données insérées
-  listedb <- list(site = endroit_u, taxo = taxo_u, obs = oiseaux, effort_e = effort_u, observations_par_heure = observations_par_heure)
+  listedb <- list(site = endroit_u, taxo = taxo_u, obs = oiseaux, effort_e = effort_u )
+  dbDisconnect(connexion)
   return(listedb)
-  str(observations_par_heure)
+  return(connexion)
 }

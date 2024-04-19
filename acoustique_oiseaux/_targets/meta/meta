@@ -3,10 +3,10 @@ ajouter_ID_obs|function|01feae08ffa13652|||||||||||||||
 ajouter_projection|function|330a3c7a88f353cd|||||||||||||||
 anatidae|stem|46ebeb1bb0715c55|3572935a70efad8b|6239c62e337c12b3|168388327||t19831.0422049315s|ada3d533c87e867c|749675|rds|local|vector|||0.2||
 bd_complet|stem|850bc715eef5ad20|f4b2b98f1ce21657|1d4a002ceec72cc4|1703483539||t19831.0423442107s|38514976e4b34177|760927|rds|local|vector|||0.01||
-bd_SQL|stem|2a1a8e8e616842ee|be56cfdc31e03a5a|fb1a70391f954500|1510083231||t19831.6701992995s|4da41e79e7b143e7|154005|rds|local|vector|||0.36|Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows|
+bd_SQL|stem|c3529f88fcd1ac76|be56cfdc31e03a5a|aff42d470d7e1b96|1510083231||t19832.6023918169s|cd1851a1ae12fc43|153797|rds|local|vector|||0.56|Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. There are 1 result in use. The connection will be released when they are closed|
 booleen_variable|stem|b8c49fbc1e94b6b3|4517e45398841888|cb3c46d8ae8d1a21|1929037551||t19831.0421610825s|c68f265f87043c29|1542|rds|local|vector|||0.1||
 check_mistakes|function|00bc9cd65ca048e7|||||||||||||||
-check_NA_heure|function|ab89b103d42a4a09|||||||||||||||
+check_NA_heure|function|780863eeda3e0bf4|||||||||||||||
 classe|stem|c71bf99e4a22f86e|7f72b29e18130fc4|4004b7463cbda531|788297132||t19829.8901416604s|a2249aa94ab93807|1879|rds|local|vector|||0.12||
 combinaison|stem|b38ead0f7ca26d54|1b028668e8f19c81|c4d6faea76ecfa09|2017124826||t19831.0422189104s|40145cce72fdc93e|765877|rds|local|vector|||0.01||
 comptage_faux|stem|fe6fde4d01d18064|03b6becf5f776c56|5bd0350fd06c441d|-821317849||t19831.0423022372s|b6d2e014b07bc296|51|rds|local|vector|||0.03||
@@ -17,17 +17,19 @@ corr_finales|stem|de500b68908f52b7|f2363911b8d193ee|4fba3ee6c8c3fc74|621559283||
 correction_anatidae|function|4b33e58f320c46af|||||||||||||||
 correction_passeriformes|function|0c35d2f539cdd38e|||||||||||||||
 creation_tables|stem|4cdbd539d2cb3138|ddf1c7db9a2a3440|4b7056f4c59a948c|404595331||t19831.042350236s|55fa9c2bb9670371|436485|rds|local|vector|||0.02||
-creer_db|function|7ffb859cf5b00c0a|||||||||||||||
+creer_db|function|ea43cee533f76ddf|||||||||||||||
 creer_tables|function|6f54cc293926564f|||||||||||||||
 dat|stem|042993c79c25f85f|634990bd5809b9de|0d4a35be2ed7357a|963459267||t19831.041741582s|7a4ae567fdb86630|657803|rds|local|vector|||3.83||
 data_frame|stem|6688997b7070563e|217598116d601535|014ff94d1c92f938|1984307675||t19831.0421934875s|30bb75a524c4c66b|749523|rds|local|vector|||0||
 date|stem|0135fb61ffd2db9f|c25d936bb7eb7bdc|2c0cc1e6c445645a|-2036497900||t19831.0421757257s|2ac00e6d02e2c2c1|14969|rds|local|vector|||1.21||
 dbSQL|function|d2ad07727b4d6b2c|||||||||||||||
+diversite_heure|function|3a8dee423ea92bec|||||||||||||||
+diversite_par_heure|stem|d793efd68f193e53|bb773101a07e8d38|44e92a04b45a7b8e|885880224||t19832.6363954136s|322d63e04337946b|247|rds|local|vector|||0.09||
 donnees_combin|stem|d2abfa04533d4093|69f583bc0b7e7f3b|ec82fae9c201861c|-1006423984||t19831.0421493187s|77041c31b5028424|366971|rds|local|vector|||0.7||
 donnees_combinees|stem|d2abfa04533d4093|69f583bc0b7e7f3b|ec82fae9c201861c|387967837||t19815.8000723917s|77041c31b5028424|366971|rds|local|vector|||0.53||
 doublons|stem|85d1e6c2d4281211|56afa841d7aff45c|f3829b62a3a468a5|587727228||t19831.0422891899s|0e1140032e3dc027|3262|rds|local|vector|||1.28||
 dryobates|stem|afe5ad61ef42a20a|9c7f9db983c510af|c4954981879a046d|546844267||t19831.0422454651s|77b716f433d84c06|749935|rds|local|vector|||0.28||
-erreur_na|stem|67e3bcd8537f6d6b|509aac5bbb274cc0|b6e58649f7aa420c|-1194086986||t19831.0422303511s|a1c456b03adbfbf8|44|rds|local|vector|||0.04||
+erreur_na|stem|67e3bcd8537f6d6b|509aac5bbb274cc0|2b87cb49bc415a4a|-1194086986||t19832.601224216s|a1c456b03adbfbf8|44|rds|local|vector|||0.02||
 faux_heure|stem|49a9acd67f8544e9|95ee8f2377ead074|b3b70d1d9a3cbdd8|1435542212||t19831.0422592638s|904102f045693ea3|6066|rds|local|vector|||0.02||
 fichiers|stem|47f75482b8c366bf|c5c047587881c685|ef46db3751d8e999|-1731428263||t19831.0416913924s|23d4c068c1a38c5b|5606|rds|local|vector|||0.85||
 groupe_par_espece|stem|dd6439898f481e61|55d661fbf89cc14e|117b4cc05fc36677|974309587||t19831.0422586338s|7692d1a51f3a6adb|912442|rds|local|vector|||0.2||
@@ -39,10 +41,12 @@ na_null|stem||abad835e809c27ac|6d434dfd7de9ccaf|1490674469||t19815.8104964568s||
 nb_erreur|stem|b5809468b5417d56|2a8230a0fb87b2cd|20d15af8ced2b0f2|1149576663||t19831.0422896055s|9064907978062c20|56|rds|local|vector|||0||
 null_en_na|stem|71d4b62e85e48fe0|3e73b42f9b0fd243|e0804684b7c7ba95|-1764068814||t19831.042154717s|1fd7b7f8700dd5ac|367132|rds|local|vector|||0.06||
 null_vers_na|function|13dc8737831ec87e|||||||||||||||
-obs_heure|stem||be4de78dc2adc380|a98747fc5639756f|-121157591||t19831.6731965507s||0|rds|local|vector|||0.04||erreur dïvaluation de largument conn lors de la sïlection dune mïthode pour la fonction dbGetQuery  objet bd_ introuvable
-obs_par_heure|function|ac7c351cb810f25f|||||||||||||||
+obs_heure|stem|f05354b476b97b64|83f62f4c8c8d7d9d|f4a6b0db0a07ca44|-121157591||t19832.6363969669s|bf1a1ce7cd804ab5|251|rds|local|vector|||0.09||
+obs_par_cana|function|33f9b6ec389e07b0|||||||||||||||
+obs_par_heure|function|a652044575e9d8b0|||||||||||||||
 observations_par_heure|stem||58371c7e9de74d1e|a98747fc5639756f|389193711||t19831.0727995228s||0|rds|local|vector|||0.03||impossible de trouver une méthode héritée pour la fonction dbGetQuery pour la signature NULL, character
 ordre|stem|ebdd789c6a04682b|edd9936cb3b8c21c|78c7e295293cae89|269860699||t19831.0423320056s|87f4f3cb70f087b1|17295|rds|local|vector|||0.14||
+paruline_canada|stem|c8e90342e0b5c42a|8290fed9e12d29dc|c70fa2f68e067f15|-1351454014||t19832.6363940637s|ed0b2f97180e0b86|205|rds|local|vector|||0.03||
 pas_NA|stem||d4f03758a8400aa9|98a417ab430e9090|234101331||t19815.7961123286s||0|rds|local|vector|||0.01||impossible de trouver la fonction NULL_NA
 passeriformes|stem|ed09baa92d40528f|5af662cc57b457de|b597b3bc7bb04ec5|1537171937||t19831.0422737723s|72dca6456bb529d7|749919|rds|local|vector|||0.59||
 pres|stem|813b466ca7aa6e2c|327e06457a6d5960|930fc6577bba6040|-477472967||t19831.0421795652s|1f16ebe1209f3e72|367134|rds|local|vector|||0||
