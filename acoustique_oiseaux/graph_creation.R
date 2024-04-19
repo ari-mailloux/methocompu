@@ -1,20 +1,20 @@
 ######### Création du graphique d'observations par heure en utilisant les données filtrées
 donnees_non_na <- obs_heure[!is.na(obs_heure$heure_formattee), ]
 # Créer un vecteur contenant toutes les heures que vous voulez afficher
-toutes_heures <- format(seq(from=min(donnees_non_na$heure_formattee), 
-                            to=max(donnees_non_na$heure_formattee), 
-                            by="1 hour"), 
-                        "%H:%M:%S")
+#toutes_heures <- format(seq(from=min(donnees_non_na$heure_formattee), 
+                           # to=max(donnees_non_na$heure_formattee), 
+                           # by="1 hour"), 
+                    #    "%H:%M:%S")
 # Ajouter les heures sans observation
-donnees_completes <- data.frame(heure_formattee = toutes_heures, 
-                                nb_obs = 0)
+#donnees_completes <- data.frame(heure_formattee = toutes_heures, 
+                              #  nb_obs = 0)
 # Fusionner avec les données existantes
-donnees_completes <- merge(donnees_completes, 
-                           donnees_non_na, 
-                           by = "heure_formattee", 
-                           all.x = TRUE)
+#donnees_completes <- merge(donnees_completes, 
+                         #  donnees_non_na, 
+                         #  by = "heure_formattee", 
+                         #  all.x = TRUE)
 # Trier les données par heure
-donnees_completes <- donnees_completes[order(donnees_completes$heure_formattee), ]
+#donnees_completes <- donnees_completes[order(donnees_completes$heure_formattee), ]
 
 #Créer le graphique
 obs_par_heure <- barplot(donnees_non_na$nb_obs, 
