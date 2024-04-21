@@ -1,3 +1,4 @@
+######### Création du graphique d'observations de Paruline du Canada par heure
 graph_2 <- function(graph_obs) {
   #Retirer les NA
   par_donnees_non_na <- paru[!is.na(paru$heure_formattee), ]
