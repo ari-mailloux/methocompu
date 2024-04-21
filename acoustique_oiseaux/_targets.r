@@ -29,6 +29,8 @@ source("obs_par_heure.R")
 source("paru_canada.R")
 source("diversite.R")
 source("graph_obs_h.R")
+source("graph_paru_h.R")
+source("graph_div_h")
 
 list(
   tar_target(
