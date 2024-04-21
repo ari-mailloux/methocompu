@@ -36,29 +36,8 @@ La prise de données s’est basée sur plusieurs périodes d’observation d’
 Afin de répondre à la première question, soit l’heure à laquelle le plus grand nombre d’oiseaux sont détectés, toutes les observations ont été prises en considération, peu importe le niveau taxonomique atteint lors de l’identification. Un graphique a été créé pour représenter le nombre d’observations à chaque heure (FIGURE 1!!!!!!). Le plus grand nombre d'observations ont été répertoriées à 5:00, 6:00 et 7:00 du matin. 
 
 ```{r}
-#Retirer les NA
-  par_donnees_non_na <- paru[!is.na(paru$heure_formattee), ]
-  #Convertir format des données en heure
-  par_donnees_non_na$heure_formattee <- as.POSIXct(par_donnees_non_na$heure_formattee, format = "%H:%M:%S")
-  
-  #Établissement des limites d'heures
-  heures_completees_par <- data.frame(heure_formattee = as.POSIXct(sprintf("%02d:00:00", 0:23), format = "%H:%M:%S"))
-  
-  #Ajout des heures manquantes
-  donnees_completees_par <- merge(heures_completees_par, par_donnees_non_na, by = "heure_formattee", all.x = TRUE)
-  donnees_completees_par$nb_obs[is.na(donnees_completees_par$nb_obs)] <- 0
-  
-  #Création du graphique
-  png("graph2.png")
-  obs_par_cana_heure <- barplot(donnees_completees_par$nb_obs, 
-                                names.arg = format(donnees_completees_par$heure_formattee, "%H:%M:%S"), 
-                                ylab = "Nombre d'observation", 
-                                xlab = "Heure", 
-                                col = "skyblue",
-                                ylim = c(0, 40),
-                                las = 2,
-                                cex.names = 0.6,
-                                main = "Nombre d'observations de Cardellina\ncanadensis en fonction de l'heure")
+
+graph_1()
 ```
 
 
