@@ -1,48 +1,43 @@
-######### Création du graphique d'observations par heure en utilisant les données filtrées
-donnees_non_na <- heure[!is.na(heure$heure_formattee), ]
-# Créer un vecteur contenant toutes les heures que vous voulez afficher
-toutes_heures <- format(seq(from=min(donnees_non_na$heure_formattee), 
-                            to=max(donnees_non_na$heure_formattee), 
-                            by="1 hour"), 
-                        "%H:%M:%S")
-# Ajouter les heures sans observation
-donnees_completes <- data.frame(heure_formattee = toutes_heures, 
-                                nb_obs = 0)
-# Fusionner avec les données existantes
-donneescomp <- merge(donnees_completes, 
-                           donnees_non_na, 
-                           by = "heure_formattee", 
-                           all.x = TRUE)
-# Trier les données par heure
-donnees_completes <- donneescomp[order(donneescomp$heure_formattee), ]
 
-#Créer le graphique
-obs_par_heure <- barplot(donnees_non_na$nb_obs, 
-                         names.arg = donnees_non_na$heure_formattee, 
+######### Création du graphique d'observations par heure en utilisant les données filtrées
+
+donnees_non_na <- heure[!is.na(heure$heure_formattee), ]
+heure$heure_formattee <- as.POSIXct(heure$heure_formattee, format = "%H:%M:%S")
+heures_completees <- data.frame(heure_formattee = as.POSIXct(sprintf("%02d:00:00", 0:23), format = "%H:%M:%S"))
+head(heures_completees)
+donnees_completees <- merge(heures_completees, donnees_non_na, by = "heure_formattee", all.x = TRUE)
+head(donnees_completees)
+donnees_completees$nb_obs[is.na(donnees_completees$nb_obs)] <- 0
+
+obs_par_heure <- barplot(donnees_completees$nb_obs, 
+                         names.arg = format(donnees_completees$heure_formattee, "%H:%M:%S"), 
                          ylab = "Nombre d'observation", 
                          xlab = "Heure", 
                          col = "skyblue",
                          ylim = c(0, 6000),
                          las = 2,
                          cex.names = 0.6,
-                         main= "Nombre d'observations de les tous oiseaux\nconfondus en fonction de l'heure")
+                         main= "Nombre d'observations de tous les oiseaux\nconfondus en fonction de l'heure")
 
 # Afficher le graphique
 print(obs_par_heure)
 
 #######Création du graphique d'observations de paruline du Canada par heure
-par_donnees_non_na <- obs_par_cana[!is.na(obs_par_cana$heure_formattee), ]
-
-obs_par_cana_heure <- barplot(par_donnees_non_na$nb_obs, 
-                              names.arg = par_donnees_non_na$heure_formattee, 
+par_donnees_non_na <- paru[!is.na(paru$heure_formattee), ]
+par_donnees_non_na$heure_formattee <- as.POSIXct(par_donnees_non_na$heure_formattee, format = "%H:%M:%S")
+heures_completees_par <- data.frame(heure_formattee = as.POSIXct(sprintf("%02d:00:00", 0:23), format = "%H:%M:%S"))
+heures_completees_par <- data.frame(heure_formattee = as.POSIXct(sprintf("%02d:00:00", 0:23), format = "%H:%M:%S"))
+donnees_completees_par <- merge(heures_completees_par, par_donnees_non_na, by = "heure_formattee", all.x = TRUE)
+donnees_completees_par$nb_obs[is.na(donnees_completees_par$nb_obs)] <- 0
+obs_par_cana_heure <- barplot(donnees_completees_par$nb_obs, 
+                              names.arg = format(donnees_completees_par$heure_formattee, "%H:%M:%S"), 
                               ylab = "Nombre d'observation", 
                               xlab = "Heure", 
                               col = "skyblue",
                               ylim = c(0, 40),
                               las = 2,
                               cex.names = 0.6,
-                              main= "Nombre d'observations de Cardellina canadensis\nen fonction de l'heure")
-
+                              main = "Nombre d'observations de Cardellina\ncanadensis en fonction de l'heure")
 
 # Afficher le graphique
 print(obs_par_cana_heure)
