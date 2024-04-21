@@ -1,17 +1,18 @@
-graph_3 <- function(graph_obs) {
+######### Création du graphique de la diversité (nombre d'espèces distinctes) par heure
+graph_3 <- function(observation_div, heureformat, nomscientific) {
   #Retirer les NA
-  div_non_na <- diversite[!is.na(diversite$heure_formattee), ]
+  div_non_na <- observation_div[!is.na(observation_div$heureformat), ]
   #Convertir format des données en heure
-  div_non_na$heure_formattee <- as.POSIXct(div_non_na$heure_formattee, format = "%H:%M:%S")
+  div_non_na$heureformat <- as.POSIXct(div_non_na$heureformat, format = "%H:%M:%S")
   #Établissement des limites d'heures
-  heures_completees_div <- data.frame(heure_formattee = as.POSIXct(sprintf("%02d:00:00", 0:23), format = "%H:%M:%S"))
+  heures_completees_div <- data.frame(heureformat = as.POSIXct(sprintf("%02d:00:00", 0:23), format = "%H:%M:%S"))
   #Ajout des heures manquantes
-  donnees_completees_div <- merge(heures_completees_div, div_non_na, by = "heure_formattee", all.x = TRUE)
-  donnees_completees_div$nb_valid_scientific_names[is.na(donnees_completees_div$nb_valid_scientific_names)] <- 0
+  donnees_completees_div <- merge(heures_completees_div, div_non_na, by = "heureformat", all.x = TRUE)
+  donnees_completees_div$nomscientific[is.na(donnees_completees_div$nomscientific)] <- 0
   #Création du graphique
-  png("graph3.png")
-  div_par_heure <- barplot(donnees_completees_div$nb_valid_scientific_names, 
-                           names.arg = format(donnees_completees_div$heure_formattee, "%H:%M:%S"), 
+  
+  div_par_heure <- barplot(donnees_completees_div$nomscientific, 
+                           names.arg = format(donnees_completees_div$heureformat, "%H:%M:%S"), 
                            ylab = "Nombre d'espèces distinctes", 
                            xlab = "Heure", 
                            col = "skyblue",
@@ -19,6 +20,6 @@ graph_3 <- function(graph_obs) {
                            las = 2,
                            cex.names = 0.6,
                            main = "Nombre d'espèces distinctes\nen fonction de l'heure")
-  
+  png("graph3.png")
   dev.off()
 }
