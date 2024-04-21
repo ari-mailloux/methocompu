@@ -21,7 +21,7 @@ graph_1 <- function(donnees_heure,col_formattee,col_col_nb_obs) {
                            ylim = c(0, 6000),
                            las = 2,
                            cex.names = 0.6,
-                           main= "Nombre d'observations de tous les oiseaux\nconfondus en fonction de l'heure")
+                           main= "Figure 1. Nombre d'observations de tous les oiseaux\nconfondus en fonction de l'heure")
   png("graph1.png")
   print(obs_par_heure)
   dev.off()

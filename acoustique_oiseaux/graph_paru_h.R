@@ -22,7 +22,7 @@ graph_2 <- function(observation_paru,formatheure,nombre_obs_paru) {
                                 ylim = c(0, 40),
                                 las = 2,
                                 cex.names = 0.6,
-                                main = "Nombre d'observations de Cardellina\ncanadensis en fonction de l'heure")
+                                main = "Figure 2. Nombre d'observations de Cardellina\ncanadensis en fonction de l'heure")
   
   dev.off()
 }

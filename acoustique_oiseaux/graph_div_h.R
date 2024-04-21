@@ -19,7 +19,7 @@ graph_3 <- function(observation_div, heureformat, nomscientific) {
                            ylim = c(0, 150),
                            las = 2,
                            cex.names = 0.6,
-                           main = "Nombre d'espèces distinctes\nen fonction de l'heure")
+                           main = "Figure 3. Nombre d'espèces distinctes\nen fonction de l'heure")
   png("graph3.png")
   dev.off()
 }
