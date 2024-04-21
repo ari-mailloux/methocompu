@@ -1,4 +1,7 @@
 ######### Création du graphique de la diversité (nombre d'espèces distinctes) par heure
+### observation_div c'est le dataframe avec les donnees sur les heures d'observation et le nombre d'espèces distinctes observées(diversite)
+### heureformat c'est la colonne de diversite avec les heures formattees (heure_formattees)
+### nomscientific c'est la colonne avec le nombre d'espèces distinctes par heure (valid_scientific_name)
 graph_3 <- function(observation_div, heureformat, nomscientific) {
   #Retirer les NA
   div_non_na <- observation_div[!is.na(observation_div$heureformat), ]
