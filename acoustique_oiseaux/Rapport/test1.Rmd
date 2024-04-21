@@ -35,6 +35,33 @@ La prise de données s’est basée sur plusieurs périodes d’observation d’
 
 Afin de répondre à la première question, soit l’heure à laquelle le plus grand nombre d’oiseaux sont détectés, toutes les observations ont été prises en considération, peu importe le niveau taxonomique atteint lors de l’identification. Un graphique a été créé pour représenter le nombre d’observations à chaque heure (FIGURE 1!!!!!!). Le plus grand nombre d'observations ont été répertoriées à 5:00, 6:00 et 7:00 du matin. 
 
+```{r}
+#Retirer les NA
+  par_donnees_non_na <- paru[!is.na(paru$heure_formattee), ]
+  #Convertir format des données en heure
+  par_donnees_non_na$heure_formattee <- as.POSIXct(par_donnees_non_na$heure_formattee, format = "%H:%M:%S")
+  
+  #Établissement des limites d'heures
+  heures_completees_par <- data.frame(heure_formattee = as.POSIXct(sprintf("%02d:00:00", 0:23), format = "%H:%M:%S"))
+  
+  #Ajout des heures manquantes
+  donnees_completees_par <- merge(heures_completees_par, par_donnees_non_na, by = "heure_formattee", all.x = TRUE)
+  donnees_completees_par$nb_obs[is.na(donnees_completees_par$nb_obs)] <- 0
+  
+  #Création du graphique
+  png("graph2.png")
+  obs_par_cana_heure <- barplot(donnees_completees_par$nb_obs, 
+                                names.arg = format(donnees_completees_par$heure_formattee, "%H:%M:%S"), 
+                                ylab = "Nombre d'observation", 
+                                xlab = "Heure", 
+                                col = "skyblue",
+                                ylim = c(0, 40),
+                                las = 2,
+                                cex.names = 0.6,
+                                main = "Nombre d'observations de Cardellina\ncanadensis en fonction de l'heure")
+```
+
+
 Afin de déterminer l’heure à laquelle la plus grande diversité d’oiseaux a été détectée, les données ont été triées pour seulement garder les observations qui se rendaient à l’espèce. La qualité des données était ainsi bonifiée pour éviter de compter la même espèce deux fois ou de manquer des espèces. Par exemple, deux observations de paruline du Canada pourraient avoir été recensées à différents niveaux ; l’une d’elle à la famille, indiquant *Parulidae*, et l’autre à l’espèce, indiquant *Cardellina canadensis*. Ces deux lignes auraient été comptées comme des espèces différentes. À l’inverse, plusieurs observations de la famille *Parulidae* pourraient indiquer une paruline du Canada et une paruline triste, mais ces espèces seraient comptées comme une seule espèce.  Une fois les données triées, un graphique a été créé afin de représenter la richesse spécifique à chaque heure (figure 2). Les heures montrant la plus grande richesse spécifique détectée sont (À COMPLÉTER). 
 
 Pour répondre à la troisième question, soit l’heure à laquelle les parulines du Canada sont le plus détectées, seulement les observations ayant identifié *C. canadensis* jusqu’à l’espèce ont été prises en compte. Plus d’une centaine d’observations de cette espèce ont été recensées. Un graphique représentant toutes ces observations selon l’heure a été produit (figure 3). Celui-ci a permis d’identifier les heures de plus grande activité des parulines du Canada, soit 5:00, 6:00 et 7:00 du matin. 
