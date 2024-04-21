@@ -1,32 +1,25 @@
 ######### Création du graphique d'observations par heure
 graph_1 <- function(graph_obs) {
-  # Créer un vecteur contenant toutes les heures que vous voulez afficher
-  toutes_heures <- format(seq(from=min(graph_obs$heure_formattee), 
-                              to=max(graph_obs$heure_formattee), 
-                              by="1 hour"), 
-                          "%H:%M:%S")
-  # Ajouter les heures sans observation
-  donnees_completes <- data.frame(heure_formattee = toutes_heures, 
-                                  nb_obs = 0)
-  # Fusionner avec les données existantes
-  donnees_completes <- merge(donnees_completes, 
-                             graph_obs, 
-                             by = "heure_formattee", 
-                             all.x = TRUE)
-  # Trier les données par heure
-  donnees_completes <- donnees_completes[order(donnees_completes$heure_formattee), ]
-  
-  #Créer le graphique
+  #Retirer les NA
+  donnees_non_na <- heure[!is.na(heure$heure_formattee), ]
+  #Convertir format des données en heure
+  heure$heure_formattee <- as.POSIXct(heure$heure_formattee, format = "%H:%M:%S")
+  #Établissement des limites d'heures
+  heures_completees <- data.frame(heure_formattee = as.POSIXct(sprintf("%02d:00:00", 0:23), format = "%H:%M:%S"))
+  #Ajout des heures manquantes
+  donnees_completees <- merge(heures_completees, donnees_non_na, by = "heure_formattee", all.x = TRUE)
+  donnees_completees$nb_obs[is.na(donnees_completees$nb_obs)] <- 0
+  #Création du graphique
   png("graph1.png")
-  graph_obs_par_heure <- barplot(donnees_completes$nb_obs, 
-                           names.arg = donnees_completes$heure_formattee, 
+  obs_par_heure <- barplot(donnees_completees$nb_obs, 
+                           names.arg = format(donnees_completees$heure_formattee, "%H:%M:%S"), 
                            ylab = "Nombre d'observation", 
                            xlab = "Heure", 
                            col = "skyblue",
                            ylim = c(0, 6000),
                            las = 2,
                            cex.names = 0.6,
-                           main= "Nombre d'observations de les tous oiseaux\nconfondus en fonction de l'heure")
+                           main= "Nombre d'observations de tous les oiseaux\nconfondus en fonction de l'heure")
   
   dev.off()
 }
