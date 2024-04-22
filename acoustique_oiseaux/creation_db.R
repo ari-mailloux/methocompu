@@ -33,7 +33,7 @@ creer_db <- function(db_name, endroit_u, taxo_u, oiseaux, effort_u) {
       date_obs                DATE,
       id_obs                  INTEGER PRIMARY KEY AUTOINCREMENT,
       site_id                 INTEGER,
-      time_obs                CHAR,
+      time_obs                TIME,
       valid_scientific_name   VARCHAR(50),
       rank                    VARCHAR(50),
       FOREIGN KEY (site_id) REFERENCES site(site_id),
