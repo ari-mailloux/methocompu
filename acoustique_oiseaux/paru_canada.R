@@ -9,5 +9,6 @@ obs_par_cana <- function(requete2) {
   paru <- dbGetQuery(connexion, requete2)
   
   dbDisconnect(connexion)
+  print(paru)
   return(paru)
 }
