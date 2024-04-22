@@ -5,16 +5,14 @@
 graph_1 <- function(donnees_heure, col_formattee, col_nb_obs) {
   # Retirer les NA
   donn_non_na <- donnees_heure[!is.na(donnees_heure[[col_formattee]]), ]
-  # Convertir le format des données en heure
-  donnees_non_na <- transform(donn_non_na, col_formattee = as.POSIXct(donn_non_na[[col_formattee]], format = "%H:%M:%S"))
   # Établissement des limites d'heures
-  heures_completees <- data.frame(col_formattee = as.POSIXct(sprintf("%02d:00:00", 0:23), format = "%H:%M:%S"))
+  heures_completees <- data.frame(col_formattee = sprintf("%02d:00:00", 0:23))
   # Ajout des heures manquantes
-  donnees_completees <- merge(heures_completees, donnees_non_na, by = "col_formattee", all.x = TRUE)
+  donnees_completees <- merge(heures_completees, donn_non_na, by = "col_formattee", all.x = TRUE)
   donnees_completees[[col_nb_obs]][is.na(donnees_completees[[col_nb_obs]])] <- 0
   # Création du graphique
   obs_par_heure <- barplot(donnees_completees[[col_nb_obs]], 
-                           names.arg = format(donnees_completees[[col_formattee]], "%H:%M:%S"), 
+                           names.arg = donnees_completees[[col_formattee]], 
                            ylab = "Nombre d'observation", 
                            xlab = "Heure", 
                            col = "skyblue",
@@ -25,4 +23,4 @@ graph_1 <- function(donnees_heure, col_formattee, col_nb_obs) {
   png("graph1.png")
   print(obs_par_heure)
   dev.off()
-} 
+}

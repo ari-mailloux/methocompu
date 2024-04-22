@@ -3,7 +3,7 @@ ajouter_ID_obs|function|ba52f57a0c23176d|||||||||||||||
 ajouter_projection|function|c23a2620920e7283|||||||||||||||
 anatidae|stem|88377ed2b98fe5bd|6f9ef1d4e0bd7c31|a294965c29fe58b9|168388327||t19835.5453992248s|da59a702bdb4a181|749675|rds|local|vector|||0.09||
 bd_complet|stem|00bd175f968a24d5|9f2062b2583f26c9|701911433adae68f|1703483539||t19835.5454426978s|e0c53bf0c15d34fe|760927|rds|local|vector|||0||
-bd_SQL|stem|cd9ab2fd3667e5d5|33d53949fb888c24|2a770b4e3d9e2a7f|1510083231||t19835.5454479605s|ff35e9d3927015a0|153797|rds|local|vector|||0.21|Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. There are 1 result in use. The connection will be released when they are closed|
+bd_SQL|stem|cd9ab2fd3667e5d5|33d53949fb888c24|655ef2f1f3a9f370|1510083231||t19835.5823922216s|ff35e9d3927015a0|153797|rds|local|vector|||0.22|Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. Closing open result set, pending rows. There are 1 result in use. The connection will be released when they are closed|
 booleen_variable|stem|72eed7c6c2dd0ec8|d6c1bc8abcb41fd9|2337ea59ad79e8a4|1929037551||t19835.5453820233s|bbfe78f38b975e8d|1542|rds|local|vector|||0.02||
 check_mistakes|function|7b119c381e9436fa|||||||||||||||
 check_NA_heure|function|a0b4bb090ae75d22|||||||||||||||
@@ -17,7 +17,7 @@ corr_finales|stem|07fb603f88c7eea3|14712885c6268ef8|dda4655c346c5b20|621559283||
 correction_anatidae|function|4b33e58f320c46af|||||||||||||||
 correction_passeriformes|function|3c25a8b5ec13251e|||||||||||||||
 creation_tables|stem|868567da135c8d19|9c02faf84320c02d|353289f6ca109ce2|404595331||t19835.5454445195s|b950d40594fab1df|436485|rds|local|vector|||0||
-creer_db|function|266d9f58da1f9197|||||||||||||||
+creer_db|function|81b801664ed2f7da|||||||||||||||
 creer_tables|function|42c98963749b6d0c|||||||||||||||
 dat|stem|cbf3a631bbda8181|b5caa8fa98fce005|d12689135f4cab1d|963459267||t19835.5453704711s|11dda69a1aed7140|657803|rds|local|vector|||1.7||
 data_frame|stem|c8cf349c4fe0b0c6|fcdc787320bd62a5|77b0d36e168e80e4|1984307675||t19835.5453926287s|13bf2340cea9393b|749523|rds|local|vector|||0||
@@ -56,7 +56,7 @@ passeriformes|stem|ed415446abaa8216|39c55006af3ee21f|496acca835f3a2b7|1537171937
 pres|stem|6ddfe1cbf966c154|5362377a55e67e90|ae1b07b2a978cb35|-477472967||t19835.5453879687s|938af026fe78c6e9|367134|rds|local|vector|||0||
 presence|function|1b70893e3de2d82a|||||||||||||||
 projection|stem|e48cb9b15cbbffe8|77ad1a65fa94821e|0ef7a0971a2c03e2|219107467||t19835.5453895986s|5fac8e156664d035|375506|rds|local|vector|||0||
-rapport|stem|005262a913ab07f6|0879b7beb0a670f2|a4644d44f090a51d|-1266156412|Rapport/test1.pdf*Rapport/test1.Rmd|t19835.5618246482s||190258|file|local|vector|||0.88||argument trim incorrect
+rapport|stem|005262a913ab07f6|0879b7beb0a670f2|a4644d44f090a51d|-1266156412|Rapport/test1.pdf*Rapport/test1.Rmd|t19835.5618246482s||190258|file|local|vector|||0.81||by doit spécifier une colonne unique correcte
 regroup|function|974a964eb154375b|||||||||||||||
 rename_class|function|6722eb95f6c0cad8|||||||||||||||
 rename_col|function|1820a6feae6f602e|||||||||||||||
