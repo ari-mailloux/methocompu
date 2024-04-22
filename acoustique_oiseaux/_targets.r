@@ -30,7 +30,7 @@ source("paru_canada.R")
 source("diversite.R")
 source("graph_obs_h.R")
 source("graph_paru_h.R")
-source("graph_div_h")
+source("graph_div_h.R")
 
 list(
   tar_target(
@@ -175,7 +175,15 @@ list(
   ),
   tar_target(
     graph1,
-    graph_1(obs_heure)
+    graph_1(obs_heure) #Il y a trois argumetns dans cet fonction mais juste 1 ici
+  ),
+  tar_target(
+    graph2,
+    graph_2(paruline_canada)
+  ),
+  tar_target(
+    graph3,
+    graph_3(diversite_par_heure)
   )
 )
 
