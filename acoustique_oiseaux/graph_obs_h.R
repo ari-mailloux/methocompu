@@ -2,7 +2,7 @@
 ### donnees_heure c'est le dataframe avec les donnees sur les heures d'observation (heure)
 ### col_formattee c'est la colonne de donnees_heure avec les heures formattees (col_formattee)
 ### col_col_nb_obs c'est la colonne avec le nombre d'observations par heure (col_nb_obs)
-graph_1 <- function(donnees_heure,col_formattee,col_col_nb_obs) {
+graph_1 <- function(donnees_heure,col_formattee,col_nb_obs) {
   #Retirer les NA
   donn_non_na <- donnees_heure[!is.na(donnees_heure$col_formattee), ]
   #Convertir format des données en heure

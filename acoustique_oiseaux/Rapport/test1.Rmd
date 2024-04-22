@@ -1,7 +1,7 @@
 ---
 title: Détection de la faune aviaire, de la richesse spécifique d’oiseaux et de la paruline du Canada (*Cardellina canadensis*) selon le moment de la journée
 author: 
-  - Florence Beaudry
+  - Florence Beaudry yyyyyyyyy
   - Jasmine Boulanger
   - Ariane Mailloux
   - Clara Surprenant
@@ -36,7 +36,7 @@ La prise de données s’est basée sur plusieurs périodes d’observation d’
 Afin de répondre à la première question, soit l’heure à laquelle le plus grand nombre d’oiseaux sont détectés, toutes les observations ont été prises en considération, peu importe le niveau taxonomique atteint lors de l’identification. Un graphique a été créé pour représenter le nombre d’observations à chaque heure (figure 1). Le plus grand nombre d'observations ont été répertoriées à 5:00, 6:00 et 7:00 du matin. Aucune observation n'est répertoriée pour 00:00, 2:00, de 9:00 à 11:00 inclusivement et de 14:00 à 18:00 inclusivement.
 
 ```{r}
-#dire ici de tar_read l'étape de création du graph1
+
 ```
 
 
