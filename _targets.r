@@ -1,4 +1,3 @@
-setwd("acoustique_oiseaux")
 library(targets)
 library(tarchetypes)
 tar_option_set(packages = c("rmarkdown", "dplyr", "RSQLite","knitr"))
