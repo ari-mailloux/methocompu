@@ -122,6 +122,7 @@ obs_par_heure <- barplot(donnees_complete[["nb_obs"]],
                            main = "Figure 3. Nombre d'observations de paruline \ndu Canada en fonction de l'heure")
 
 ```
+
 # Discussion
 Les résultats ont permis d’établir un profil journalier de détectabilité pour toutes les espèces détectées ainsi que pour *C. canadensis*. Autant pour les parulines du Canada que pour les autres espèces d’oiseaux, les heures de plus grande activité des oiseaux étaient entre 5:00 et 8:00 du matin. Pour ce qui est de la détection de diversité, les heures où le plus grand nombre d'espèces a été détecté s'étend un peu plus tard, soit jusqu'à 9:00, exclusivement. Tous ces résultats concordent avec ce qui est connu présentement sur l'activité des oiseaux. En effet, il est généralement conseillé de débuter l’observation acoustique d’oiseaux une demi-heure avant le lever du soleil et de continuer jusqu’à 3 heures et demie à 4 heures et demie après le lever du soleil pour profiter du maximum d’activité @morgan_estimating_1983. Une différence notable qui peut être soulevée entre l'activité des oiseaux en général et celle des parulines du Canada est l'absence, chez cette dernière, d'activité nocturne. Donc, bien que certains oiseaux ont été observés sur les plages horaires de 21:00, 22:00, 23:00, 1:00 et 3:00, ce n'est pas le cas pour *C. canadensis*.
 

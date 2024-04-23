@@ -1,7 +1,7 @@
 # Analyse des inventaires d'oiseaux au Québec
 
 ## Répertoire de travail
-Pour faire fonctionner ce projet, il est nécessaire d'établir le répertoire de travail comme étant le projet (methocompu).
+Pour faire fonctionner ce projet, il est nécessaire d'établir le répertoire de travail comme étant le dossier intitulé acoustique_oiseaux.
 
 ## Données
 Ce jeu de données a été produit suite à un programme de suivi de la biodiversité acoustique du Ministère de l'Environnement, de la Lutte contre les Changements Climatiques, de la Faune et des Parcs (MELCCFP) effectué dans le cadre du Réseau de suivi de la biodiversité du Québec. Celui-ci contient des observations acoustiques d'oiseaux permettant de mesurer la composition et la phénologie acoustique des oiseaux de plusieurs sites au Québec.
