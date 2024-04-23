@@ -33,7 +33,7 @@ source("Fonctions/diversite.R")
 list(
   tar_target(
     name = fichiers,
-    command = list.files(pattern = "\\.csv$", path = "acoustique_oiseaux")
+    command = list.files(pattern = "\\.csv$")
   ),
   tar_target(
     dat,
