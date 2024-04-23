@@ -14,6 +14,7 @@ csl: pnas.csl
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(data.table)
 ```
 
 # Résumé
@@ -33,16 +34,15 @@ De l’échantillonnage acoustique a été effectué sur plusieurs sites au Qué
 # Description de la méthode et des résultats
 La prise de données s’est basée sur plusieurs périodes d’observation d’environ 15 minutes prises entre 2016 et 2020 au Québec. Les oiseaux détectés ont été répertoriés et identifiés avec le plus de détails possibles ; en revanche, certaines identifications se sont rendues à l’ordre, la famille, ou le genre sans atteindre l’identification de l’espèce. Le niveau d’identification taxonomique a donc été rapporté pour chaque observation. Les autres données incluent la date, les heures de début et de fin de la période d’observation, l’heure de l’observation, la latitude, et le numéro du site. Les données ont d’abord été validées et nettoyées. Pour ce faire, plusieurs vérifications de formatage et d’uniformité des données ont été réalisées. Suite à cette étape, des traitements de données ont été réalisés pour répondre aux questions de recherche. 
 
-Afin de répondre à la première question, soit l’heure à laquelle le plus grand nombre d’oiseaux sont détectés, toutes les observations ont été prises en considération, peu importe le niveau taxonomique atteint lors de l’identification. Un graphique a été créé pour représenter le nombre d’observations à chaque heure (figure 1). Le plus grand nombre d'observations ont été répertoriées à 5:00, 6:00 et 7:00 du matin. Aucune observation n'est répertoriée pour 00:00, 2:00, de 9:00 à 11:00 inclusivement et de 14:00 à 18:00 inclusivement.
+Afin de répondre à la première question, soit l’heure à laquelle le plus grand nombre d’oiseaux sont détectés, toutes les observations ont été prises en considération, peu importe le niveau taxonomique atteint lors de l’identification. Un graphique a été créé pour représenter le nombre d’observations à chaque heure (figure 1). Le plus grand nombre d'observations ont été répertoriées à 5:00, 6:00 et 7:00 du matin. Pour 5:00, le nombre d'observations atteint plus de 5500. Aucune observation n'est répertoriée pour 00:00, 2:00, de 9:00 à 11:00 inclusivement et de 14:00 à 18:00 inclusivement.
 
-```{r}
+```{r graph_abondance, echo=FALSE}
 #lire le resultat du target obs_heure
 donnees_heures<-targets::tar_read('obs_heure')
 
 #Creer un dataframe avec les bonnes heures que nous voulons afficher sur le graphique
 heures_completees <- data.frame(heure_formattee = sprintf("%02d:00:00", 0:23))
 #transformer le format du dataframe des heures pour que les heures soient reconnues comme des heures et non une chaîne de caractère
-library(data.table)
 heures_completees$heure_formattee <- as.ITime(heures_completees$heure_formattee, format = "%H:%M:%S")
 
 #Fusion des deux tables pour avoir le nombre d'observation à chaque heure
@@ -64,16 +64,15 @@ obs_par_heure <- barplot(donnees_completees[["nb_obs"]],
 ```
 
 
-Afin de déterminer l’heure à laquelle la plus grande diversité d’oiseaux a été détectée, les données ont été triées pour seulement garder les observations qui se rendaient à l’espèce. La qualité des données était ainsi bonifiée pour éviter de compter la même espèce deux fois ou de manquer des espèces. Par exemple, deux observations de paruline du Canada pourraient avoir été recensées à différents niveaux ; l’une d’elle à la famille, indiquant *Parulidae*, et l’autre à l’espèce, indiquant *Cardellina canadensis*. Ces deux lignes auraient été comptées comme des espèces différentes. À l’inverse, plusieurs observations de la famille *Parulidae* pourraient indiquer une paruline du Canada et une paruline triste, mais ces espèces seraient comptées comme une seule espèce.  Une fois les données triées, un graphique a été créé afin de représenter la richesse spécifique à chaque heure (figure 2). Les heures montrant la plus grande richesse spécifique détectée sont 5:00, 6:00 et 8:00, suivies de très près par 7:00. Aucune observation n'est répertoriée pour 00:00, 2:00, de 9:00 à 11:00 inclusivement et de 14:00 à 18:00 inclusivement.
+Afin de déterminer l’heure à laquelle la plus grande diversité d’oiseaux a été détectée, les données ont été triées pour seulement garder les observations qui se rendaient à l’espèce. La qualité des données était ainsi bonifiée pour éviter de compter la même espèce deux fois ou de manquer des espèces. Par exemple, deux observations de paruline du Canada pourraient avoir été recensées à différents niveaux ; l’une d’elle à la famille, indiquant *Parulidae*, et l’autre à l’espèce, indiquant *Cardellina canadensis*. Ces deux lignes auraient été comptées comme des espèces différentes. À l’inverse, plusieurs observations de la famille *Parulidae* pourraient indiquer une paruline du Canada et une paruline triste, mais ces espèces seraient comptées comme une seule espèce.  Une fois les données triées, un graphique a été créé afin de représenter la richesse spécifique à chaque heure (figure 2). Les heures montrant la plus grande richesse spécifique détectée sont 5:00, 6:00 et 8:00, suivies de très près par 7:00. Pour ces 4 heures, autour de 120 espèces ont été observées et identifiées. Aucune observation n'est répertoriée pour 00:00, 2:00, de 9:00 à 11:00 inclusivement et de 14:00 à 18:00 inclusivement.
 
-```{r}
+```{r graph_diversite, echo=FALSE}
 #lire le resultat du target obs_heure
 donnees_diversite<-targets::tar_read('diversite_par_heure')
 
 #Creer un dataframe avec les bonnes heures que nous voulons afficher sur le graphique
 heures_complet <- data.frame(heure_formattee = sprintf("%02d:00:00", 0:23))
 #transformer le format du dataframe des heures pour que les heures soient reconnues comme des heures et non une chaîne de caractère
-library(data.table)
 heures_complet$heure_formattee <- as.ITime(heures_complet$heure_formattee, format = "%H:%M:%S")
 
 #Fusion des deux tables pour avoir le nombre d'observation à chaque heure
@@ -95,16 +94,15 @@ div_par_heure <- barplot(donnees_complet[["nb_valid_scientific_name"]],
 ```
 
 
-Pour répondre à la troisième question, soit l’heure à laquelle les parulines du Canada sont le plus détectées, seulement les observations ayant identifié *C. canadensis* jusqu’à l’espèce ont été prises en compte. Plus d’une centaine d’observations de cette espèce ont été recensées. Un graphique représentant toutes ces observations selon l’heure a été produit (figure 3). Celui-ci a permis d’identifier les heures de plus grande activité des parulines du Canada, soit 5:00, 6:00 et 7:00 du matin. Aucune observation n'a été répertoriée de 9:00 à 11:00, de 14:00 à 18:00, puis de 21:00 à 3:00 du matin, inclusivement.
+Pour répondre à la troisième question, soit l’heure à laquelle les parulines du Canada sont le plus détectées, seulement les observations ayant identifié *C. canadensis* jusqu’à l’espèce ont été prises en compte. Plus d’une centaine d’observations de cette espèce ont été recensées. Un graphique représentant toutes ces observations selon l’heure a été produit (figure 3). Celui-ci a permis d’identifier les heures de plus grande activité des parulines du Canada, soit 5:00, 6:00 et 7:00 du matin. Les parulines du Canada ont été observées 35 fois dans la plage horaire de 7:00. Aucune observation n'a été répertoriée de 9:00 à 11:00, de 14:00 à 18:00, puis de 21:00 à 3:00 du matin, inclusivement.
 
-```{r}
+```{r graph_paruline, echo=FALSE}
 #lire le resultat du target obs_heure
 donnees_paruline<-targets::tar_read('paruline_canada')
 
 #Creer un dataframe avec les bonnes heures que nous voulons afficher sur le graphique
 heures_complete <- data.frame(heure_formattee = sprintf("%02d:00:00", 0:23))
 #transformer le format du dataframe des heures pour que les heures soient reconnues comme des heures et non une chaîne de caractère
-library(data.table)
 heures_complete$heure_formattee <- as.ITime(heures_complete$heure_formattee, format = "%H:%M:%S")
 
 #Fusion des deux tables pour avoir le nombre d'observation à chaque heure
@@ -124,7 +122,6 @@ obs_par_heure <- barplot(donnees_complete[["nb_obs"]],
                            main = "Figure 3. Nombre d'observations de paruline \ndu Canada en fonction de l'heure")
 
 ```
-
 # Discussion
 Les résultats ont permis d’établir un profil journalier de détectabilité pour toutes les espèces détectées ainsi que pour *C. canadensis*. Autant pour les parulines du Canada que pour les autres espèces d’oiseaux, les heures de plus grande activité des oiseaux étaient entre 5:00 et 8:00 du matin. Pour ce qui est de la détection de diversité, les heures où le plus grand nombre d'espèces a été détecté s'étend un peu plus tard, soit jusqu'à 9:00, exclusivement. Tous ces résultats concordent avec ce qui est connu présentement sur l'activité des oiseaux. En effet, il est généralement conseillé de débuter l’observation acoustique d’oiseaux une demi-heure avant le lever du soleil et de continuer jusqu’à 3 heures et demie à 4 heures et demie après le lever du soleil pour profiter du maximum d’activité @morgan_estimating_1983. Une différence notable qui peut être soulevée entre l'activité des oiseaux en général et celle des parulines du Canada est l'absence, chez cette dernière, d'activité nocturne. Donc, bien que certains oiseaux ont été observés sur les plages horaires de 21:00, 22:00, 23:00, 1:00 et 3:00, ce n'est pas le cas pour *C. canadensis*.
 
