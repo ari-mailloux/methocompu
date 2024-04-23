@@ -56,7 +56,7 @@ passeriformes|stem|ed415446abaa8216|39c55006af3ee21f|496acca835f3a2b7|1537171937
 pres|stem|6ddfe1cbf966c154|5362377a55e67e90|ae1b07b2a978cb35|-477472967||t19835.5453879687s|938af026fe78c6e9|367134|rds|local|vector|||0||
 presence|function|1b70893e3de2d82a|||||||||||||||
 projection|stem|e48cb9b15cbbffe8|77ad1a65fa94821e|0ef7a0971a2c03e2|219107467||t19835.5453895986s|5fac8e156664d035|375506|rds|local|vector|||0||
-rapport|stem|005262a913ab07f6|0879b7beb0a670f2|a4644d44f090a51d|-1266156412|Rapport/test1.pdf*Rapport/test1.Rmd|t19835.5618246482s||190258|file|local|vector|||0.81||by doit spécifier une colonne unique correcte
+rapport|stem|71cff9a5a5eb7b63|1a95814c98fb8327|a4644d44f090a51d|-1266156412|Rapport/Rapport.pdf*Rapport/Rapport.Rmd|t19836.4851387602s||242187|file|local|vector|||1.13||objet donnees_heure introuvable
 regroup|function|974a964eb154375b|||||||||||||||
 rename_class|function|6722eb95f6c0cad8|||||||||||||||
 rename_col|function|1820a6feae6f602e|||||||||||||||
@@ -68,7 +68,7 @@ replace_tro|function|e6369b3c1138cf18|||||||||||||||
 replace_vir|function|d190286bbcd24773|||||||||||||||
 tables_uniques|stem||c2592ac1dea7634b|8866cf4c93b41925|-413188624||t19829.5838194885s||0|rds|local|vector|||0.17||Cant select columns that dont exist. Column lat doesnt exist.
 tarins|stem|9e3db541f5e2dc74|6f92c015eee3fbf3|f9c7eefe6b77f7b6|1436335473||t19835.5454290409s|0a426233831e19b3|749949|rds|local|vector|||0.07||
-test|stem|67e3bcd8537f6d6b|79f1ee424252ffa3|a05e16dd1b7259a8|1839796588||t19831.6544412803s|a1c456b03adbfbf8|44|rds|local|vector|||0.69||
+test|stem|1f183e5bf5852977|782b7d5d35c54e85|a4644d44f090a51d|1839796588||t19836.4756998006s|32da600b172cf8c3|251|rds|local|vector|||0||
 traiter_data|function|18ae8135c9e27aa8|||||||||||||||
 troglodytes|stem|653f90b44dee6df5|bbc1be0836f95b90|764f063684684a8d|-1987815427||t19835.5454333257s|679f7852e8898fe3|749993|rds|local|vector|||0.1||
 unicite|stem|9f5941d1ad742a59|3f0885fbcfafe5d4|279a95b69e37f04d|134982438||t19835.5454449855s|b29a027ee6b75a24|15811|rds|local|vector|||0.02||
