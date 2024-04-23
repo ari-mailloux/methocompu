@@ -54,7 +54,7 @@ donnees_completees$nb_obs[is.na(donnees_completees$nb_obs)] <- 0
 #Creation du graphique
 obs_par_heure <- barplot(donnees_completees[["nb_obs"]], 
                            names.arg = donnees_completees[["heure_formattee"]], 
-                           ylab = "Nombre d'observation", 
+                           ylab = "Nombre d'observations", 
                            xlab = "Heure", 
                            col = "skyblue",
                            ylim = c(0, 6000),
@@ -91,7 +91,7 @@ div_par_heure <- barplot(donnees_complet[["nb_valid_scientific_name"]],
                            ylim = c(0, 150),
                            las = 2,
                            cex.names = 0.6,
-                           main = "Figure 3. Nombre d'espèces distinctes\nen fonction de l'heure")
+                           main = "Figure 2. Nombre d'espèces distinctes\nen fonction de l'heure")
 ```
 
 
@@ -99,31 +99,30 @@ Pour répondre à la troisième question, soit l’heure à laquelle les parulin
 
 ```{r}
 #lire le resultat du target obs_heure
-donnees_diversite<-targets::tar_read('paruline_canada')
-print(donnees_diversite)
+donnees_paruline<-targets::tar_read('paruline_canada')
 
 #Creer un dataframe avec les bonnes heures que nous voulons afficher sur le graphique
-heures_complet <- data.frame(heure_formattee = sprintf("%02d:00:00", 0:23))
+heures_complete <- data.frame(heure_formattee = sprintf("%02d:00:00", 0:23))
 #transformer le format du dataframe des heures pour que les heures soient reconnues comme des heures et non une chaîne de caractère
 library(data.table)
-heures_complet$heure_formattee <- as.ITime(heures_complet$heure_formattee, format = "%H:%M:%S")
+heures_complete$heure_formattee <- as.ITime(heures_complete$heure_formattee, format = "%H:%M:%S")
 
 #Fusion des deux tables pour avoir le nombre d'observation à chaque heure
-donnees_complet <- merge(heures_complet,donnees_diversite,by="heure_formattee",all.x=TRUE)
+donnees_complete <- merge(heures_complete,donnees_paruline,by="heure_formattee",all.x=TRUE)
 
-#Remplacer les observations des heures sans observation de NA vers 0
-donnees_complet$nb_valid_scientific_name[is.na(donnees_complet$nb_valid_scientific_name)] <- 0
+donnees_complete$nb_obs[is.na(donnees_complete$nb_obs)] <- 0
 
 #Creation du graphique
-div_par_heure <- barplot(donnees_complet[["nb_valid_scientific_name"]], 
-                           names.arg = donnees_complet[["heure_formattee"]], 
-                           ylab = "Nombre d'espèces distinctes détectées", 
+obs_par_heure <- barplot(donnees_complete[["nb_obs"]], 
+                           names.arg = donnees_complete[["heure_formattee"]], 
+                           ylab = "Nombre d'observations", 
                            xlab = "Heure", 
                            col = "skyblue",
-                           ylim = c(0, 150),
+                           ylim = c(0, 40),
                            las = 2,
                            cex.names = 0.6,
-                           main = "Figure 3. Nombre d'espèces distinctes\nen fonction de l'heure")
+                           main = "Figure 3. Nombre d'observations de paruline \ndu Canada en fonction de l'heure")
+
 ```
 
 # Discussion
