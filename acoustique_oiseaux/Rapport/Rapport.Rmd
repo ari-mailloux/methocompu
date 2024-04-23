@@ -61,21 +61,69 @@ obs_par_heure <- barplot(donnees_completees[["nb_obs"]],
                            las = 2,
                            cex.names = 0.6,
                            main = "Figure 1. Nombre d'observations de tous les oiseaux\nconfondus en fonction de l'heure")
-
 ```
 
 
 Afin de déterminer l’heure à laquelle la plus grande diversité d’oiseaux a été détectée, les données ont été triées pour seulement garder les observations qui se rendaient à l’espèce. La qualité des données était ainsi bonifiée pour éviter de compter la même espèce deux fois ou de manquer des espèces. Par exemple, deux observations de paruline du Canada pourraient avoir été recensées à différents niveaux ; l’une d’elle à la famille, indiquant *Parulidae*, et l’autre à l’espèce, indiquant *Cardellina canadensis*. Ces deux lignes auraient été comptées comme des espèces différentes. À l’inverse, plusieurs observations de la famille *Parulidae* pourraient indiquer une paruline du Canada et une paruline triste, mais ces espèces seraient comptées comme une seule espèce.  Une fois les données triées, un graphique a été créé afin de représenter la richesse spécifique à chaque heure (figure 2). Les heures montrant la plus grande richesse spécifique détectée sont 5:00, 6:00 et 8:00, suivies de très près par 7:00. Aucune observation n'est répertoriée pour 00:00, 2:00, de 9:00 à 11:00 inclusivement et de 14:00 à 18:00 inclusivement.
 
 ```{r}
-#dire ici de tar_read l'étape de création du graph2
+#lire le resultat du target obs_heure
+donnees_diversite<-targets::tar_read('diversite_par_heure')
+
+#Creer un dataframe avec les bonnes heures que nous voulons afficher sur le graphique
+heures_complet <- data.frame(heure_formattee = sprintf("%02d:00:00", 0:23))
+#transformer le format du dataframe des heures pour que les heures soient reconnues comme des heures et non une chaîne de caractère
+library(data.table)
+heures_complet$heure_formattee <- as.ITime(heures_complet$heure_formattee, format = "%H:%M:%S")
+
+#Fusion des deux tables pour avoir le nombre d'observation à chaque heure
+donnees_complet <- merge(heures_complet,donnees_diversite,by="heure_formattee",all.x=TRUE)
+
+#Remplacer les observations des heures sans observation de NA vers 0
+donnees_complet$nb_valid_scientific_name[is.na(donnees_complet$nb_valid_scientific_name)] <- 0
+
+#Creation du graphique
+div_par_heure <- barplot(donnees_complet[["nb_valid_scientific_name"]], 
+                           names.arg = donnees_complet[["heure_formattee"]], 
+                           ylab = "Nombre d'espèces distinctes détectées", 
+                           xlab = "Heure", 
+                           col = "skyblue",
+                           ylim = c(0, 150),
+                           las = 2,
+                           cex.names = 0.6,
+                           main = "Figure 3. Nombre d'espèces distinctes\nen fonction de l'heure")
 ```
 
 
 Pour répondre à la troisième question, soit l’heure à laquelle les parulines du Canada sont le plus détectées, seulement les observations ayant identifié *C. canadensis* jusqu’à l’espèce ont été prises en compte. Plus d’une centaine d’observations de cette espèce ont été recensées. Un graphique représentant toutes ces observations selon l’heure a été produit (figure 3). Celui-ci a permis d’identifier les heures de plus grande activité des parulines du Canada, soit 5:00, 6:00 et 7:00 du matin. Aucune observation n'a été répertoriée de 9:00 à 11:00, de 14:00 à 18:00, puis de 21:00 à 3:00 du matin, inclusivement.
 
 ```{r}
-#dire ici de tar_read l'étape de création du graph3
+#lire le resultat du target obs_heure
+donnees_diversite<-targets::tar_read('paruline_canada')
+print(donnees_diversite)
+
+#Creer un dataframe avec les bonnes heures que nous voulons afficher sur le graphique
+heures_complet <- data.frame(heure_formattee = sprintf("%02d:00:00", 0:23))
+#transformer le format du dataframe des heures pour que les heures soient reconnues comme des heures et non une chaîne de caractère
+library(data.table)
+heures_complet$heure_formattee <- as.ITime(heures_complet$heure_formattee, format = "%H:%M:%S")
+
+#Fusion des deux tables pour avoir le nombre d'observation à chaque heure
+donnees_complet <- merge(heures_complet,donnees_diversite,by="heure_formattee",all.x=TRUE)
+
+#Remplacer les observations des heures sans observation de NA vers 0
+donnees_complet$nb_valid_scientific_name[is.na(donnees_complet$nb_valid_scientific_name)] <- 0
+
+#Creation du graphique
+div_par_heure <- barplot(donnees_complet[["nb_valid_scientific_name"]], 
+                           names.arg = donnees_complet[["heure_formattee"]], 
+                           ylab = "Nombre d'espèces distinctes détectées", 
+                           xlab = "Heure", 
+                           col = "skyblue",
+                           ylim = c(0, 150),
+                           las = 2,
+                           cex.names = 0.6,
+                           main = "Figure 3. Nombre d'espèces distinctes\nen fonction de l'heure")
 ```
 
 # Discussion
